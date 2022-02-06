@@ -55,15 +55,15 @@ function LoginFormPage() {
           </div>
           <input
             type="submit"
-            value="Continue"
+            value="Log In"
             className="signup-login-inputs signup-login-inputs-submit"
           />
           {/* <button type="submit">Log In</button> */}
         </form>
         <div id="signup-login">
-          <p>Don't have an account?</p>
+          <p>New to Help?</p>
           <NavLink to="/signup" id="signup-login-link">
-            Create account
+            Sign up
           </NavLink>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
-import logo from "../../images/newLogo.png";
+// import logo from "../../images/newLogo.png";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -80,13 +80,13 @@ function SignupFormPage() {
           </div>
           <input
             type="submit"
-            value="Continue"
+            value="Sign Up"
             className="signup-login-inputs signup-login-inputs-submit"
           />
           {/* <button type="submit">Sign Up</button> */}
         </form>
         <div id="signup-login">
-          <p>Already have an account?</p>
+          <p>Already on Help?</p>
           <NavLink to="/login" id="signup-login-link">
             Log in
           </NavLink>

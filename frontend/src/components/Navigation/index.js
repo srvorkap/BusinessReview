@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import logo from "../../images/newLogo.png";
+// import logo from "../../images/newLogo.png";
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
@@ -35,7 +35,7 @@ function Navigation({ isLoaded }) {
   return (
     <ul id="navbar">
       <li id="navbar-two">
-        <img src={logo} id="logo"></img>
+        {/* <img src={logo} id="logo"></img> */}
 
         <a href="https://github.com/srvorkap" target="_blank">
           <span id="github-icon">
