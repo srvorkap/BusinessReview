@@ -53,8 +53,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   User.associate = function (models) {
-    // User.hasMany(models.Note, { foreignKey: "userId" });
-    // User.hasMany(models.Notebook, { foreignKey: "notebookId" });
+    User.hasMany(models.Business, { foreignKey: "userId" });
+    User.hasMany(models.Review, { foreignKey: "userId" });
   };
   // User Model Methods
 
