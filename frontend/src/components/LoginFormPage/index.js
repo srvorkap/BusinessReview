@@ -61,7 +61,7 @@ function LoginFormPage() {
           {/* <button type="submit">Log In</button> */}
         </form>
         <div id="signup-login">
-          <p>New to Help?</p>
+          <p>New to BusinessReview?</p>
           <NavLink to="/signup" id="signup-login-link">
             Sign up
           </NavLink>
