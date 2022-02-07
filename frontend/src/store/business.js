@@ -56,3 +56,20 @@ export const postBusiness = business => async dispatch => {
     }
     return data;
 };
+
+// Thunk creator for PATCH request
+export const patchBusiness = business => async dispatch => {
+    const res = await csrfFetch(`/api/businesses/${business.id}/edit`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(business),
+    });
+    const data = await res.json();
+
+    if (res.ok) {
+        dispatch(patchBusinessActionCreator(data));
+    } else {
+        throw res;
+    }
+    return data;
+};
