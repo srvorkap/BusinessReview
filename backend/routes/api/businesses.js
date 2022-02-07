@@ -48,7 +48,7 @@ router.post(
 );
 
 router.patch(
-    "/:id",
+    "/:id/edit",
     // requireAuth,
     asyncHandler(async (req, res) => {
         const {
