@@ -47,4 +47,38 @@ router.post(
     })
 );
 
+router.patch(
+    "/:id",
+    // requireAuth,
+    asyncHandler(async (req, res) => {
+        const {
+            imageURL,
+            name,
+            description,
+            address,
+            city,
+            state,
+            zipCode,
+            phone,
+            hours,
+            userId,
+        } = req.body;
+        const { id } = req.params;
+        const business = await Business.findByPk(+id)
+        await business.update({
+            imageURL,
+            name,
+            description,
+            address,
+            city,
+            state,
+            zipCode,
+            phone,
+            hours,
+            userId,
+        })
+        res.json(business)
+    })
+);
+
 module.exports = router;
