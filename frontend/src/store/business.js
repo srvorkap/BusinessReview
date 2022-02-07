@@ -90,3 +90,46 @@ export const deleteBusiness = id => async dispatch => {
     }
     // return data
 };
+
+const initialState = { entries: {} };
+
+const businessReducer = (state = initialState, action) => {
+    let newState = {};
+    switch (action.type) {
+        case GET_BUSINESSES: {
+            newState = { ...state };
+            newState.entries = action.businesses.reduce((entries, business) => {
+                entries[business.id] = business;
+                return entries;
+            }, {});
+            return newState;
+            // return { ...state, entries: [...action.businesses] }
+        }
+        case POST_BUSINESS: {
+            newState = { ...state };
+            newState.entries = {
+                ...newState.entries,
+                [action.business.id]: action.business,
+            };
+            return newState;
+        }
+        case PATCH_BUSINESS: {
+            newState = { ...state };
+            newState.entries = {
+                ...newState.entries,
+                [action.business.id]: action.business,
+            };
+            return newState;
+        }
+        case DELETE_BUSINESS: {
+            newState = { ...state };
+            newState.entries = { ...newState.entries, [action.id]: undefined };
+            const newestState = { ...newState };
+            return newestState;
+        }
+        default:
+            return state;
+    }
+};
+
+export default businessReducer;
