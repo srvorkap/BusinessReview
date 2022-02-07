@@ -73,3 +73,20 @@ export const patchBusiness = business => async dispatch => {
     }
     return data;
 };
+
+// Thunk creator for DELETE request
+export const deleteBusiness = id => async dispatch => {
+    const res = await csrfFetch("/api/businesses", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id }),
+    });
+    const data = res.json();
+
+    if (res.ok) {
+        dispatch(deleteBusinessActionCreator(data));
+    } else {
+        throw res;
+    }
+    // return data
+};
