@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
   return (
     <>
 
-      <NavLink to='/notes' className="navbar-links">Notes</NavLink>
+      {/* <NavLink to='/notes' className="navbar-links">Notes</NavLink> */}
       <button onClick={openMenu}>
         <div id="icon-profile" >
           <i className="fas fa-user-circle" />
