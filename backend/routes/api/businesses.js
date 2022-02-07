@@ -64,7 +64,7 @@ router.patch(
             userId,
         } = req.body;
         const { id } = req.params;
-        const business = await Business.findByPk(+id)
+        const business = await Business.findByPk(+id);
         await business.update({
             imageURL,
             name,
@@ -76,8 +76,19 @@ router.patch(
             phone,
             hours,
             userId,
-        })
-        res.json(business)
+        });
+        res.json(business);
+    })
+);
+
+router.delete(
+    "/:id",
+    // requireAuth,
+    asyncHandler(async (req, res) => {
+        const { id } = req.params;
+        const business = await Business.findByPk(+id);
+        business.destroy();
+        res.json({ id });
     })
 );
 
