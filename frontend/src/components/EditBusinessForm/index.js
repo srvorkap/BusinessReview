@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import { patchBusiness } from "../../store/business";
 
 const EditBusinessForm = () => {
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
     const businessesObject = useSelector(store => store.business.entries);
-    const businesses = Object.values(businessesObject);
+    const businesses = Object?.values(businessesObject);
     const currentBusiness = businesses?.find(
         business => business?.id === businessIdNumerical
     );
+
+    const dispatch = useDispatch()
+    const history = useHistory()
+
     const {
         imageURL,
         name,
@@ -20,9 +25,10 @@ const EditBusinessForm = () => {
         zipCode,
         phone,
         hours,
+        userId
     } = currentBusiness;
 
-    const [editedImageURL, setEditedImageURL] = useState('');
+    const [editedImageURL, setEditedImageURL] = useState(imageURL);
     const [editedName, setEditedName] = useState(name);
     const [editedDescription, setEditedDescription] = useState(description);
     const [editedAddress, setEditedAddress] = useState(address);
@@ -36,9 +42,25 @@ const EditBusinessForm = () => {
 
     const onSubmit = e => {
         e.preventDefault()
+        const editedBusiness = {
+            id: businessIdNumerical,
+            imageURL: editedImageURL,
+            name: editedName,
+            description: editedDescription,
+            address: editedAddress,
+            city: editedCity,
+            state: editedState,
+            zipCode: editedZipCode,
+            phone: editedPhone,
+            hours: editedHours,
+            userId
+        }
+        dispatch(patchBusiness(editedBusiness))
+        history.goBack()
     }
     const onClick = e => {
         e.preventDefault()
+        history.goBack()
     }
     return (
         <div className="input-box">
@@ -46,7 +68,7 @@ const EditBusinessForm = () => {
             <form onSubmit={onSubmit}>
                 <div className="content">
                     <ul className="errors">
-                        {errors.map(error => (
+                        {errors?.map(error => (
                             <li key={error}>{error}</li>
                         ))}
                     </ul>
@@ -145,7 +167,7 @@ const EditBusinessForm = () => {
                 </div>
                 <div className="business-buttons-container">
                     <button type="submit" className="buttons">
-                        Create
+                        Edit
                     </button>
                     <button type="button" className="buttons" onClick={onClick}>
                         Cancel
