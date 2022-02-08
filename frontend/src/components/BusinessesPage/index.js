@@ -19,23 +19,25 @@ const BusinessesPage = () => {
             {businesses?.map(business => {
                 // return <li key={business.id}>{business.name}</li>
                 return (
-                    <div className="single-business">
-                        <div>
-                            <img
-                                src={business.imageURL}
-                                className="single-business-img"
-                            />
-                        </div>
-                        <div>
+                    <NavLink to={`/businesses/${business.id}`}>
+                        <div className="single-business">
                             <div>
-                                {business.id}. {business.name}
+                                <img
+                                    src={business.imageURL}
+                                    className="single-business-img"
+                                />
                             </div>
-                            <div>RATING</div>
-                            <div>{business.hours}</div>
-                            <div>{business.phone}</div>
-                            {/* <NavLink to="/aaaa">srki</NavLink> */}
+                            <div>
+                                <div>
+                                        {business.id}. {business.name}
+                                </div>
+                                <div>RATING</div>
+                                <div>{business.hours}</div>
+                                <div>{business.phone}</div>
+                                {/* <NavLink to="/aaaa">srki</NavLink> */}
+                            </div>
                         </div>
-                    </div>
+                    </NavLink>
                 );
             })}
         </ul>
