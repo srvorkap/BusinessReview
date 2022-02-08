@@ -49,7 +49,7 @@ router.post(
 
 router.patch(
     "/:id/edit",
-    // requireAuth,
+    requireAuth,
     asyncHandler(async (req, res) => {
         const {
             imageURL,

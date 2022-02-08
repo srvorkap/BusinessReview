@@ -38,7 +38,6 @@ const CreateBusinessForm = () => {
             hours,
             userId
         }
-        console.log(business)
         dispatch(postBusiness(business))
         history.goBack()
     }
@@ -53,7 +52,7 @@ const CreateBusinessForm = () => {
             <form onSubmit={onSubmit}>
                 <div className='content'>
                     <ul className='errors'>
-                        {errors.map(error => (
+                        {errors?.map(error => (
                             <li key={error}>{error}</li>
                         ))}
                     </ul>
