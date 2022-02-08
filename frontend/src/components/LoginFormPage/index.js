@@ -12,7 +12,7 @@ function LoginFormPage() {
   const [errors, setErrors] = useState([]);
 
   // if logged in redirect to (it used to be '/')
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/businesses" />;
 
   const handleSubmit = e => {
     e.preventDefault();

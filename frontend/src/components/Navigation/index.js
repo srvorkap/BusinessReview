@@ -13,7 +13,7 @@ function Navigation({ isLoaded }) {
     sessionLinks = (
       <>
         <ProfileButton user={sessionUser} />
-        {/* <NavLink to="/notes">Notes</NavLink> */}
+        <NavLink to="/businesses">Businesses</NavLink>
       </>
     );
   } else {
@@ -37,7 +37,7 @@ function Navigation({ isLoaded }) {
       <li id="navbar-two">
         {/* <img src={logo} id="logo"></img> */}
 
-        {/* <a href="https://github.com/srvorkap" target="_blank">
+        <a href="https://github.com/srvorkap" target="_blank">
           <span id="github-icon">
             <i class="fab fa-github"></i>
           </span>
@@ -46,7 +46,7 @@ function Navigation({ isLoaded }) {
           <span id="linkedin-icon">
             <i class="fab fa-linkedin"></i>
           </span>
-        </a> */}
+        </a>
         {isLoaded && sessionLinks}
       </li>
     </ul>
