@@ -39,7 +39,6 @@ const BusinessesPage = () => {
                                 <div>RATING</div>
                                 <div>{business.hours}</div>
                                 <div>{business.phone}</div>
-                                {/* <NavLink to="/aaaa">srki</NavLink> */}
                             </div>
                         </NavLink>
                     </div>
