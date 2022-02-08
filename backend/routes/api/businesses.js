@@ -16,7 +16,7 @@ router.get(
 
 router.post(
     "/",
-    // requireAuth,
+    requireAuth,
     asyncHandler(async (req, res) => {
         const {
             imageURL,

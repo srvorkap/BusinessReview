@@ -42,7 +42,7 @@ export const getBusinesses = () => async (dispatch, getState) => {
 
 // Thunk creator for POST request
 export const postBusiness = business => async dispatch => {
-    const res = await csrfFetch("/api/business", {
+    const res = await csrfFetch("/api/businesses", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(business),
