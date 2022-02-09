@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import { patchBusiness } from "../../store/business";
 
-const EditBusinessForm = () => {
+const EditBusinessForm = ({sessionUser}) => {
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
     const businessesObject = useSelector(store => store?.business?.entries);
@@ -75,6 +75,7 @@ const EditBusinessForm = () => {
         e.preventDefault()
         history.push(`/businesses/${businessId}`)
     }
+    if (!sessionUser) return <Redirect to="/" />;
     return (
         <div className="input-box">
             <h1 className="business-title">Edit Business</h1>

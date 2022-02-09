@@ -1,12 +1,10 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { postBusiness } from '../../store/business'
 import './CreateBusinessForm.css'
 
-const CreateBusinessForm = () => {
-    const sessionUser = useSelector(state => state.session.user)
-
+const CreateBusinessForm = ({sessionUser}) => {
     const [ imageURL, setImageURL ] = useState('')
     const [ name, setName ] = useState('')
     const [ description, setDescription ] = useState('')
@@ -51,6 +49,7 @@ const CreateBusinessForm = () => {
         e.preventDefault()
         history.goBack()
     }
+    if (!sessionUser) return <Redirect to="/" />;
     return (
         <div className='input-box'>
             <h1 className='business-title'>Create New Business</h1>

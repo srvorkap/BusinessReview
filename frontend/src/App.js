@@ -12,8 +12,10 @@ import CreateBusinessForm from "./components/CreateBusinessForm";
 import EditBusinessForm from "./components/EditBusinessForm";
 import CreateReviewForm from "./components/CreateReviewForm";
 import ErrorPage from "./components/ErrorPage";
+import { useSelector } from 'react-redux'
 
 function App() {
+    const sessionUser = useSelector(state => state?.session?.user);
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
@@ -37,13 +39,13 @@ function App() {
                                 <SignupFormPage />
                             </Route>
                             <Route path="/businesses/new">
-                                <CreateBusinessForm />
+                                <CreateBusinessForm sessionUser={sessionUser}/>
                             </Route>
                             <Route path="/businesses/:businessId/edit" exact>
-                                <EditBusinessForm />
+                                <EditBusinessForm sessionUser={sessionUser} />
                             </Route>
                             <Route path="/businesses/:businessId" exact>
-                                <BusinessPage />
+                                <BusinessPage sessionUser={sessionUser}/>
                             </Route>
                             <Route path="/businesses" exact>
                                 <BusinessesPage />
@@ -52,7 +54,7 @@ function App() {
                                 <CreateReviewForm />
                             </Route>
                             <Route>
-                                <ErrorPage />
+                                <ErrorPage sessionUser={sessionUser} />
                             </Route>
                         </Switch>
                     )}

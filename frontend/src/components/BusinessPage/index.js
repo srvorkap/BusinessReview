@@ -7,13 +7,12 @@ import "./BusinessPage.css";
 
 import { smallStars, largeStars } from "../../helper";
 
-const BusinessPage = () => {
+const BusinessPage = ({sessionUser}) => {
     // rating
     let rating = 1.6;
     const x = smallStars(rating);
     const y = largeStars(rating);
 
-    const sessionUser = useSelector(state => state.session.user);
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
     const businessesObject = useSelector(store => store?.business?.entries);
@@ -113,6 +112,7 @@ const BusinessPage = () => {
                 Write a Review
             </button>
         );
+    if (!sessionUser) return <Redirect to="/" />;
     return (
         <>
             <div>
