@@ -82,12 +82,13 @@ router.patch(
 );
 
 router.delete(
-    "/:id",
+    "/",
     // requireAuth,
     asyncHandler(async (req, res) => {
-        const { id } = req.params;
-        const business = await Business.findByPk(+id);
-        business.destroy();
+        const { id } = req.body;
+        await Business.destroy({
+            where: { id }
+        });
         res.json({ id });
     })
 );

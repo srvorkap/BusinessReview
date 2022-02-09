@@ -7,9 +7,9 @@ import "./BusinessesPage.css";
 import { NavLink, Redirect } from "react-router-dom";
 
 const BusinessesPage = () => {
-    const businessesObject = useSelector(store => store.business.entries);
-    const businesses = Object.values(businessesObject);
-    const sessionUser = useSelector(state => state.session.user);
+    const businessesObject = useSelector(store => store?.business?.entries);
+    const businesses = Object?.values(businessesObject);
+    const sessionUser = useSelector(state => state?.session?.user);
 
 
     const dispatch = useDispatch();
@@ -25,20 +25,20 @@ const BusinessesPage = () => {
                 // return <li key={business.id}>{business.name}</li>
                 return (
                     <div className="single-business">
-                        <NavLink to={`/businesses/${business.id}`}>
+                        <NavLink to={`/businesses/${business?.id}`}>
                             <div>
                                 <img
-                                    src={business.imageURL}
+                                    src={business?.imageURL}
                                     className="single-business-img"
                                 />
                             </div>
                             <div>
                                 <div>
-                                    {business.id}. {business.name}
+                                    {business?.id}. {business?.name}
                                 </div>
                                 <div>RATING</div>
-                                <div>{business.hours}</div>
-                                <div>{business.phone}</div>
+                                <div>{business?.hours}</div>
+                                <div>{business?.phone}</div>
                             </div>
                         </NavLink>
                     </div>
