@@ -179,10 +179,10 @@ const EditBusinessForm = () => {
                     </div>
                 </div>
                 <div className="business-buttons-container">
-                    <button type="submit" className="buttons">
+                    <button type="submit" className="red buttons">
                         Edit
                     </button>
-                    <button type="button" className="buttons" onClick={onClick}>
+                    <button type="button" className="red buttons" onClick={onClick}>
                         Cancel
                     </button>
                 </div>

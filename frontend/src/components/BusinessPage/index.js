@@ -5,13 +5,13 @@ import { getBusinesses } from "../../store/business";
 import { deleteBusiness } from "../../store/business";
 import "./BusinessPage.css";
 
-import { smallStars, largeStars } from '../../helper'
+import { smallStars, largeStars } from "../../helper";
 
 const BusinessPage = () => {
     // rating
-    let rating = 1.6
-    const x = smallStars(rating)
-    const y = largeStars(rating)
+    let rating = 1.6;
+    const x = smallStars(rating);
+    const y = largeStars(rating);
 
     const sessionUser = useSelector(state => state.session.user);
     const { businessId } = useParams();
@@ -68,14 +68,14 @@ const BusinessPage = () => {
                     <div className="note-buttons-container">
                         <button
                             type="button"
-                            className="buttons"
+                            className="red buttons"
                             onClick={onEdit}
                         >
                             Edit
                         </button>
                         <button
                             type="button"
-                            className="buttons"
+                            className="red buttons"
                             onClick={onDelete}
                         >
                             Delete
@@ -85,21 +85,19 @@ const BusinessPage = () => {
                 <div className={isActive ? "popup" : "no-popup"}>
                     <div className="blocker-add"></div>
                     <div id="delete-business-popup">
-                        <h1>
-                            Are you sure you want to delete{" "}
-                            {currentBusiness?.name}
-                        </h1>
+                        <h1>Are you sure you want to delete</h1>
+                        <h1>{currentBusiness?.name}?</h1>
                         <div>
                             <button
                                 type="button"
-                                className="buttons"
+                                className="red buttons"
                                 onClick={onYes}
                             >
                                 Yes
                             </button>
                             <button
                                 type="button"
-                                className="buttons"
+                                className=" red buttons"
                                 onClick={onNo}
                             >
                                 No
@@ -111,7 +109,7 @@ const BusinessPage = () => {
         );
     else
         conditionalRendering = (
-            <button type="button" className="buttons" onClick={onReview}>
+            <button type="button" className="red buttons" onClick={onReview}>
                 Write a Review
             </button>
         );
@@ -123,8 +121,8 @@ const BusinessPage = () => {
                     className="single-business-img"
                 />
             </div>
-            <div id='stars-container'>
-                <img src={y}/>
+            <div id="stars-container">
+                <img src={y} />
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>

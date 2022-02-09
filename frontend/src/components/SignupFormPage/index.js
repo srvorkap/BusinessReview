@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./SignupForm.css";
-import signupLoginImage from '../../images/signupLogin.png'
+import signupLoginImage from "../../images/signupLogin.png";
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -33,8 +33,8 @@ function SignupFormPage() {
     };
 
     return (
-        <div id="whole-signup-page">
-            <div id="signup-form-page">
+        <div className="signup-login-page">
+            <div className="signup-login-form">
                 <form onSubmit={handleSubmit}>
                     <ul className="errors">
                         {errors.map((error, idx) => (
@@ -80,17 +80,19 @@ function SignupFormPage() {
                     <input
                         type="submit"
                         value="Sign Up"
-                        className="signup-login-inputs signup-login-inputs-submit"
+                        className="red buttons"
                     />
                 </form>
-                <div id="signup-login">
+                <div className="signup-login">
                     <p>Already on BusinessReview?</p>
                     <NavLink to="/login" id="signup-login-link">
                         Log in
                     </NavLink>
                 </div>
             </div>
-            <div id="signup-image"><img src={signupLoginImage}></img>}</div>
+            <div className="signup-login-image">
+                <img src={signupLoginImage} />
+            </div>
         </div>
     );
 }
