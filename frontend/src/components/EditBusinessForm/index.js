@@ -40,7 +40,7 @@ const EditBusinessForm = () => {
 
     const [ errors, setErrors ] = useState([])
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault()
         const editedBusiness = {
             id: businessIdNumerical,
@@ -55,12 +55,25 @@ const EditBusinessForm = () => {
             hours: editedHours,
             userId
         }
-        dispatch(patchBusiness(editedBusiness))
-        history.goBack()
+        const data = await dispatch(patchBusiness(editedBusiness))
+        if (data && data.errors) {
+            setErrors(data.errors)
+
+            setEditedImageURL(imageURL)
+            setEditedName(name)
+            setEditedDescription(description)
+            setEditedAddress(address)
+            setEditedCity(city)
+            setEditedState(state)
+            setEditedZipCode(zipCode)
+            setEditedPhone(phone)
+            setEditedHours(hours)
+        }
+        if (!data.errors) history.push(`/businesses/${businessId}`)
     }
     const onClick = e => {
         e.preventDefault()
-        history.goBack()
+        history.push(`/businesses/${businessId}`)
     }
     return (
         <div className="input-box">

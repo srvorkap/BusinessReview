@@ -59,20 +59,21 @@ router.post(
             hours,
             userId,
         } = req.body;
-        const business = Business.build({
-            imageURL,
-            name,
-            description,
-            address,
-            city,
-            state,
-            zipCode,
-            phone,
-            hours,
-            userId,
-        });
+
         const validatorErrors = validationResult(req);
         if (validatorErrors.isEmpty()) {
+            const business = Business.build({
+                imageURL,
+                name,
+                description,
+                address,
+                city,
+                state,
+                zipCode,
+                phone,
+                hours,
+                userId,
+            });
             await business.save();
             res.json(business);
         } else {
@@ -87,6 +88,7 @@ router.post(
 router.patch(
     "/:id/edit",
     requireAuth,
+    businessValidator,
     asyncHandler(async (req, res) => {
         const {
             imageURL,
@@ -100,21 +102,31 @@ router.patch(
             hours,
             userId,
         } = req.body;
-        const { id } = req.params;
-        const business = await Business.findByPk(+id);
-        await business.update({
-            imageURL,
-            name,
-            description,
-            address,
-            city,
-            state,
-            zipCode,
-            phone,
-            hours,
-            userId,
-        });
-        res.json(business);
+
+        const validatorErrors = validationResult(req)
+        if (validatorErrors.isEmpty()) {
+            const { id } = req.params;
+            const business = await Business.findByPk(+id);
+            await business.update({
+                imageURL,
+                name,
+                description,
+                address,
+                city,
+                state,
+                zipCode,
+                phone,
+                hours,
+                userId,
+            });
+            res.json(business);
+        } else {
+            const errors = validatorErrors.array().map(err => err.msg);
+            res.json({
+                errors
+            })
+        }
+
     })
 );
 
