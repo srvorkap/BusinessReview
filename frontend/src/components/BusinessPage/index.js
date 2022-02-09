@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { NavLink, useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getBusinesses } from "../../store/business";
 import { deleteBusiness } from "../../store/business";
+import "./BusinessPage.css";
 
 const BusinessPage = () => {
     const sessionUser = useSelector(state => state.session.user);
@@ -16,6 +17,8 @@ const BusinessPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const [ isActive, setIsActive ] = useState(false)
+
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
@@ -25,32 +28,34 @@ const BusinessPage = () => {
         history.push(`/businesses/${businessId}/edit`);
     };
 
-    // On delete open conformation form
+    // On delete open conformation popup
     const onDelete = e => {
         e.preventDefault();
+        setIsActive(true)
     };
 
     // On yes send delete request
     const onYes = async e => {
         e.preventDefault();
         dispatch(deleteBusiness(businessIdNumerical));
-        history.goBack();
+        history.push("/businesses");
     };
 
+    // On no close conformation popup
     const onNo = e => {
         e.preventDefault();
-        history.goBack();
+        setIsActive(false)
     };
 
     const onReview = e => {
-        e.preventDefault()
-        history.push('/reviews/new')
-    }
+        e.preventDefault();
+        history.push("/reviews/new");
+    };
 
-    // dynamic rendering of write a review and edit/delete buttons
-    let srkica;
+    // conditional rendering of write a review and edit/delete buttons
+    let conditionalRendering;
     if (sessionUser.id === currentBusiness.userId)
-        srkica = (
+        conditionalRendering = (
             <>
                 <div>
                     <div className="note-buttons-container">
@@ -70,34 +75,39 @@ const BusinessPage = () => {
                         </button>
                     </div>
                 </div>
-                <div>
-                    <h1>
-                        Are you sure you want to delete {currentBusiness?.name}
-                    </h1>
-                    <div>
-                        <button
-                            type="button"
-                            className="buttons"
-                            onClick={onYes}
-                        >
-                            Yes
-                        </button>
-                        <button
-                            type="button"
-                            className="buttons"
-                            onClick={onNo}
-                        >
-                            No
-                        </button>
+                <div className={isActive ? 'popup' : 'no-popup'}>
+                    <div className="blocker-add"></div>
+                    <div id="delete-business-popup">
+                        <h1>
+                            Are you sure you want to delete{" "}
+                            {currentBusiness?.name}
+                        </h1>
+                        <div>
+                            <button
+                                type="button"
+                                className="buttons"
+                                onClick={onYes}
+                            >
+                                Yes
+                            </button>
+                            <button
+                                type="button"
+                                className="buttons"
+                                onClick={onNo}
+                            >
+                                No
+                            </button>
+                        </div>
                     </div>
                 </div>
             </>
         );
-        else srkica = (
+    else
+        conditionalRendering = (
             <button type="button" className="buttons" onClick={onReview}>
                 Write a Review
             </button>
-        )
+        );
     return (
         <>
             <div>
@@ -112,7 +122,7 @@ const BusinessPage = () => {
                 <div>{currentBusiness?.hours}</div>
                 <div>{currentBusiness?.phone}</div>
             </div>
-            {srkica}
+            {conditionalRendering}
         </>
     );
 };
