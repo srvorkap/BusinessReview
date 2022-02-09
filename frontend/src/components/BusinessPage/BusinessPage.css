@@ -13,9 +13,9 @@
     bottom: 0;
     right: 0;
     background: rgba(0, 0, 0, 0.5);
-  }
+}
 
-  #delete-business-popup {
+#delete-business-popup {
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 450px;
@@ -29,4 +29,15 @@
     top: 50vh;
     left: 50vw;
     transform: translate(-50%, -50%);
-  }
+}
+
+#stars-container {
+    position: relative;
+}
+
+#clip {
+    position: absolute;
+    /* clip: rect(20px, 200px, 30px, ); */
+    clip-path: stroke-box(30px 20px 2px 55px);
+    /* clip: shape(top, right, bottom, left); NB 'rect' is the only available option */
+}

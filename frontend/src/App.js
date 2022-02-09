@@ -10,6 +10,7 @@ import BusinessesPage from './components/BusinessesPage'
 import BusinessPage from "./components/BusinessPage";
 import CreateBusinessForm from "./components/CreateBusinessForm";
 import EditBusinessForm from "./components/EditBusinessForm";
+import CreateReviewForm from "./components/CreateReviewForm";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function App() {
           </Route>
           <Route path='/businesses'>
             <BusinessesPage />
+          </Route>
+          <Route path='/reviews/new'>
+            <CreateReviewForm />
           </Route>
         </Switch>
       )}

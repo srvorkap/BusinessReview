@@ -5,7 +5,13 @@ import { getBusinesses } from "../../store/business";
 import { deleteBusiness } from "../../store/business";
 import "./BusinessPage.css";
 
+import { smallStars } from '../../test'
+
 const BusinessPage = () => {
+    // rating
+    let rating = 1.6
+    const x = smallStars(rating)
+
     const sessionUser = useSelector(state => state.session.user);
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
@@ -17,7 +23,7 @@ const BusinessPage = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const [ isActive, setIsActive ] = useState(false)
+    const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {
         dispatch(getBusinesses());
@@ -31,7 +37,7 @@ const BusinessPage = () => {
     // On delete open conformation popup
     const onDelete = e => {
         e.preventDefault();
-        setIsActive(true)
+        setIsActive(true);
     };
 
     // On yes send delete request
@@ -44,7 +50,7 @@ const BusinessPage = () => {
     // On no close conformation popup
     const onNo = e => {
         e.preventDefault();
-        setIsActive(false)
+        setIsActive(false);
     };
 
     const onReview = e => {
@@ -75,7 +81,7 @@ const BusinessPage = () => {
                         </button>
                     </div>
                 </div>
-                <div className={isActive ? 'popup' : 'no-popup'}>
+                <div className={isActive ? "popup" : "no-popup"}>
                     <div className="blocker-add"></div>
                     <div id="delete-business-popup">
                         <h1>
@@ -115,6 +121,9 @@ const BusinessPage = () => {
                     src={currentBusiness?.imageURL}
                     className="single-business-img"
                 />
+            </div>
+            <div id='stars-container'>
+                <img src={x}/>
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>
