@@ -5,7 +5,7 @@ import { postBusiness } from '../../store/business'
 import './CreateBusinessForm.css'
 
 const CreateBusinessForm = () => {
-    const sessionUser = useSelector(state => state.session.user.id)
+    const sessionUser = useSelector(state => state.session.user)
 
     const [ imageURL, setImageURL ] = useState('')
     const [ name, setName ] = useState('')
@@ -36,13 +36,18 @@ const CreateBusinessForm = () => {
             zipCode,
             phone,
             hours,
-            userId: sessionUser
+            userId: sessionUser.id
         }
-        dispatch(postBusiness(business))
-        history.goBack()
+        const data = await dispatch(postBusiness(business))
+        if (data && data.errors) setErrors(data.errors)
+        console.log(data)
+        if (!data.errors) {
+            const businessId = data.id.toString()
+            history.push(`/businesses/${businessId}`)
+        }
     }
 
-    const onClick = e => {
+    const onCancel = e => {
         e.preventDefault()
         history.goBack()
     }
@@ -153,7 +158,7 @@ const CreateBusinessForm = () => {
                     <button type='submit' className='buttons'>
                         Create
                     </button>
-                    <button type='button' className='buttons' onClick={onClick}>
+                    <button type='button' className='buttons' onClick={onCancel}>
                         Cancel
                     </button>
                 </div>

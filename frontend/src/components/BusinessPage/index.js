@@ -54,7 +54,7 @@ const BusinessPage = () => {
 
     // conditional rendering of write a review and edit/delete buttons
     let conditionalRendering;
-    if (sessionUser.id === currentBusiness.userId)
+    if (sessionUser?.id === currentBusiness?.userId)
         conditionalRendering = (
             <>
                 <div>

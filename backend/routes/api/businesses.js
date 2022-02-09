@@ -6,6 +6,34 @@ const { Business } = require("../../db/models");
 
 const router = express.Router();
 
+const businessValidator = [
+    check("imageURL")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide an image for your business."),
+    check("name")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a name for your business."),
+    check("description")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a description for your business."),
+    check("address")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide an address for your business."),
+    check("city")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a city name."),
+    check("state"),
+    check("zipCode")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a zip code."),
+    check("phone")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide your business phone number."),
+    check("hours")
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide your business hours."),
+];
+
 router.get(
     "/",
     asyncHandler(async (req, res) => {
@@ -17,6 +45,7 @@ router.get(
 router.post(
     "/",
     requireAuth,
+    businessValidator,
     asyncHandler(async (req, res) => {
         const {
             imageURL,
@@ -42,8 +71,16 @@ router.post(
             hours,
             userId,
         });
-        await business.save();
-        res.json(business);
+        const validatorErrors = validationResult(req);
+        if (validatorErrors.isEmpty()) {
+            await business.save();
+            res.json(business);
+        } else {
+            const errors = validatorErrors.array().map(err => err.msg);
+            res.json({
+                errors,
+            });
+        }
     })
 );
 
@@ -83,11 +120,11 @@ router.patch(
 
 router.delete(
     "/",
-    // requireAuth,
+    requireAuth,
     asyncHandler(async (req, res) => {
         const { id } = req.body;
         await Business.destroy({
-            where: { id }
+            where: { id },
         });
         res.json({ id });
     })

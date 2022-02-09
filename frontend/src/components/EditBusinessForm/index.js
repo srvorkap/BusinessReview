@@ -6,7 +6,7 @@ import { patchBusiness } from "../../store/business";
 const EditBusinessForm = () => {
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
-    const businessesObject = useSelector(store => store.business.entries);
+    const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
     const currentBusiness = businesses?.find(
         business => business?.id === businessIdNumerical
