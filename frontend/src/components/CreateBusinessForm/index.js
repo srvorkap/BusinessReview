@@ -5,7 +5,7 @@ import { postBusiness } from '../../store/business'
 import './CreateBusinessForm.css'
 
 const CreateBusinessForm = () => {
-    const userId = useSelector(state => state.session.user.id)
+    const sessionUser = useSelector(state => state.session.user.id)
 
     const [ imageURL, setImageURL ] = useState('')
     const [ name, setName ] = useState('')
@@ -36,7 +36,7 @@ const CreateBusinessForm = () => {
             zipCode,
             phone,
             hours,
-            userId
+            userId: sessionUser
         }
         dispatch(postBusiness(business))
         history.goBack()
