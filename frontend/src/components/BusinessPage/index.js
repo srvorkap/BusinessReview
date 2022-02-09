@@ -5,12 +5,13 @@ import { getBusinesses } from "../../store/business";
 import { deleteBusiness } from "../../store/business";
 import "./BusinessPage.css";
 
-import { smallStars } from '../../test'
+import { smallStars, largeStars } from '../../helper'
 
 const BusinessPage = () => {
     // rating
     let rating = 1.6
     const x = smallStars(rating)
+    const y = largeStars(rating)
 
     const sessionUser = useSelector(state => state.session.user);
     const { businessId } = useParams();
@@ -123,7 +124,7 @@ const BusinessPage = () => {
                 />
             </div>
             <div id='stars-container'>
-                <img src={x}/>
+                <img src={y}/>
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>

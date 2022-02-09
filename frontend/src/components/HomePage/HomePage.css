@@ -1,3 +1,11 @@
 #homepage-image {
     width: 100%;
 }
+
+#background-image {
+    background-image: url('../../images/homePageTwo.jpeg');
+}
+
+#homepage-nav {
+    color: white;
+}
