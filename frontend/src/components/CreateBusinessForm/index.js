@@ -154,10 +154,10 @@ const CreateBusinessForm = ({sessionUser}) => {
                     </div>
                 </div>
                 <div className='business-buttons-container'>
-                    <button type='submit' className='buttons'>
+                    <button type='submit' className='red buttons'>
                         Create
                     </button>
-                    <button type='button' className='buttons' onClick={onCancel}>
+                    <button type='button' className='red buttons' onClick={onCancel}>
                         Cancel
                     </button>
                 </div>
