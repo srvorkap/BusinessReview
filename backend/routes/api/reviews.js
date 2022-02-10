@@ -1,55 +1,83 @@
-const express = require('express')
-const asyncHandler = require('express-async-handler')
-const { requireAuth } = require('../../utils/auth')
-const { check, validationResult } = require('express-validator')
+const express = require("express");
+const asyncHandler = require("express-async-handler");
+const { requireAuth } = require("../../utils/auth");
+const { check, validationResult } = require("express-validator");
 
-const { Review } = require('../../db/models')
+const { Review } = require("../../db/models");
 
-const router = express.Router()
+const router = express.Router();
 
 const reviewValidator = [
-    check('rating')
+    check("rating")
         .exists({ checkFalsy: true })
-        .withMessage('Please rate this business.'),
-    check('content')
+        .withMessage("Please rate this business."),
+    check("content")
         .exists({ checkFalsy: true })
-        .withMessage('Please write a review.')
-        .isLength({ min: 2})
-        .withMessage('Please add more details so we can post this review.')
-]
+        .withMessage("Please write a review.")
+        .isLength({ min: 2 })
+        .withMessage("Please add more details so we can post this review."),
+];
 
-router.get('/', asyncHandler(async (req, res) => {
-    const reviews = await Review.findAll()
-    res.json(reviews)
-}))
+router.get(
+    "/",
+    // requireAuth,
+    asyncHandler(async (req, res) => {
+        const reviews = await Review.findAll();
+        res.json(reviews);
+    })
+);
 
-router.post('/', asyncHandler(async (req, res) => {
-    const {
-        rating,
-        content,
-        userId,
-        businessId
-    } = req.body
-    const validatorErrors = validationResult(req)
-    if (validatorErrors.isEmpty()) {
-        const review = Review.build({
+router.post(
+    "/",
+    requireAuth,
+    reviewValidator,
+    asyncHandler(async (req, res) => {
+        const { rating, content, userId, businessId } = req.body;
+        const validatorErrors = validationResult(req);
+        if (validatorErrors.isEmpty()) {
+            const review = Review.build({
+                rating,
+                content,
+                userId,
+                businessId,
+            });
+            await review.save();
+            res.json(review);
+        } else {
+            const errors = validatorErrors.array().map(err => err.msg);
+            res.json({
+                errors,
+            });
+        }
+    })
+);
+
+router.patch(
+    "/:id/edit",
+    // requireAuth,
+    reviewValidator,
+    asyncHandler(async (req, res) => {
+        const {
             rating,
             content,
-            userId,
-            businessId
-        })
-        await review.save()
-        res.json(review)
-    } else {
-        const errors = validatorErrors.array().map(err => err.msg);
-        res.json({
-            errors
-        })
-    }
-}))
+        } = req.body
 
+        const validatorErrors = validationResult(req)
+        if (validatorErrors.isEmpty()) {
+            const { id } = req.params
+            const review = await Review.findByPk(+id)
+            await review.update({
+                rating,
+                content,
+            })
+            res.json(review)
+        } else {
+            const errors = validatorErrors.array().map(err => err.msg);
+            res.json({
+                errors
+            })
+        }
+    })
+);
 
-
-
-
-module.exports = router
+module.exports = router;

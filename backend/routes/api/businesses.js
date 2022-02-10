@@ -101,7 +101,7 @@ router.patch(
             zipCode,
             phone,
             hours,
-            userId,
+            // userId,
         } = req.body;
 
         const validatorErrors = validationResult(req)
@@ -118,7 +118,7 @@ router.patch(
                 zipCode,
                 phone,
                 hours,
-                userId,
+                // userId,
             });
             res.json(business);
         } else {
