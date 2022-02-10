@@ -136,9 +136,8 @@ router.delete(
     requireAuth,
     asyncHandler(async (req, res) => {
         const { id } = req.body;
-        await Business.destroy({
-            where: { id },
-        });
+        const business = await Business.findByPk(+id)
+        await business.destroy()
         res.json({ id });
     })
 );

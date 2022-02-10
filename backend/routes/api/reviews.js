@@ -20,7 +20,7 @@ const reviewValidator = [
 
 router.get(
     "/",
-    // requireAuth,
+    requireAuth,
     asyncHandler(async (req, res) => {
         const reviews = await Review.findAll();
         res.json(reviews);
@@ -54,29 +54,37 @@ router.post(
 
 router.patch(
     "/:id/edit",
-    // requireAuth,
+    requireAuth,
     reviewValidator,
     asyncHandler(async (req, res) => {
-        const {
-            rating,
-            content,
-        } = req.body
+        const { rating, content } = req.body;
 
-        const validatorErrors = validationResult(req)
+        const validatorErrors = validationResult(req);
         if (validatorErrors.isEmpty()) {
-            const { id } = req.params
-            const review = await Review.findByPk(+id)
+            const { id } = req.params;
+            const review = await Review.findByPk(+id);
             await review.update({
                 rating,
                 content,
-            })
-            res.json(review)
+            });
+            res.json(review);
         } else {
             const errors = validatorErrors.array().map(err => err.msg);
             res.json({
-                errors
-            })
+                errors,
+            });
         }
+    })
+);
+
+router.delete(
+    "/",
+    requireAuth,
+    asyncHandler(async (req, res) => {
+        const { id } = req.body;
+        const review = await Review.findByPk(+id);
+        review.destroy();
+        res.json({ id })
     })
 );
 
