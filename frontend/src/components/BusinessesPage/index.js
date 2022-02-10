@@ -12,7 +12,7 @@ const BusinessesPage = ({ sessionUser }) => {
     // const sessionUser = useSelector(state => state?.session?.user);
     const reviewsObject = useSelector(store => store?.review?.entries)
     const reviews = Object?.values(reviewsObject)
-    // const filtered 
+    // const filtered = reviews?.filter(review => review.businessId === businesses.id)
 
     const dispatch = useDispatch();
     // useEffect(() => {
@@ -36,15 +36,15 @@ const BusinessesPage = ({ sessionUser }) => {
                             </div>
                             <div>
                                 <div>
-                                    {business?.id}. {business?.name}
+                                    {business?.name}
                                 </div>
-                                <div>
+                                {/* <div>
                                     <ul>
-                                        {reviews?.map(review => (
-                                            <li>{review.content}</li>
+                                        {(reviews?.filter(review => review.businessId === businesses.id))?.map(fReview => (
+                                            <li>{fReview.content}</li>
                                         ))}
                                     </ul>
-                                </div>
+                                </div> */}
                                 <div>{business?.hours}</div>
                                 <div>{business?.phone}</div>
                             </div>

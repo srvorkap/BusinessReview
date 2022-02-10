@@ -38,7 +38,9 @@ router.get(
     "/",
     requireAuth,
     asyncHandler(async (req, res) => {
-        const businesses = await Business.findAll();
+        const businesses = await Business.findAll({
+            include: Review
+        });
         return res.json(businesses);
     })
 );

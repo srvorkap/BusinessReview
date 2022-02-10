@@ -35,9 +35,13 @@
     position: relative;
 }
 
-#clip {
+/* #clip {
     position: absolute;
-    /* clip: rect(20px, 200px, 30px, ); */
+    clip: rect(20px, 200px, 30px, );
     clip-path: stroke-box(30px 20px 2px 55px);
-    /* clip: shape(top, right, bottom, left); NB 'rect' is the only available option */
+    clip: shape(top, right, bottom, left); NB 'rect' is the only available option
+} */
+
+#comment-user-name {
+    font-weight: bold;
 }

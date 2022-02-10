@@ -1,18 +1,12 @@
 import { useState, useEffect } from "react";
 import { NavLink, useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getBusinesses } from "../../store/business";
 import { deleteBusiness } from "../../store/business";
 import "./BusinessPage.css";
 
 import { smallStars, largeStars } from "../../helper";
 
-const BusinessPage = ({sessionUser}) => {
-    // rating
-    let rating = 1.6;
-    const x = smallStars(rating);
-    const y = largeStars(rating);
-
+const BusinessPage = ({ sessionUser }) => {
     const { businessId } = useParams();
     const businessIdNumerical = +businessId;
     const businessesObject = useSelector(store => store?.business?.entries);
@@ -20,15 +14,34 @@ const BusinessPage = ({sessionUser}) => {
     const currentBusiness = businesses?.find(
         business => business?.id === businessIdNumerical
     );
+    const reviewsObject = useSelector(store => store?.review?.entries);
+    const reviews = Object?.values(reviewsObject);
+    const currentBusinessReviews = reviews?.filter(
+        review => review.businessId === businessIdNumerical
+    );
+
+    const ratingArr = currentBusinessReviews.map(review => review.rating);
+
+    let largeStarsImage;
+    let reviewsCountRender;
+    if (ratingArr.length !== 0) {
+        const reviewsSum = ratingArr.reduce((prev, current) => prev + current);
+        const reviewsCount = ratingArr.length;
+        const rating = reviewsSum / reviewsCount;
+        largeStarsImage = largeStars(rating);
+        if (reviewsCount === 1) reviewsCountRender = `${reviewsCount} review`;
+        else reviewsCountRender = `${reviewsCount} reviews`;
+    } else {
+        largeStarsImage = largeStars(0);
+        reviewsCountRender = ``;
+    }
+
     const dispatch = useDispatch();
     const history = useHistory();
 
     const [isActive, setIsActive] = useState(false);
 
-    useEffect(() => {
-        dispatch(getBusinesses());
-    }, [dispatch]);
-
+    // On edit go to edit business form page
     const onEdit = e => {
         e.preventDefault();
         history.push(`/businesses/${businessId}/edit`);
@@ -122,7 +135,8 @@ const BusinessPage = ({sessionUser}) => {
                 />
             </div>
             <div id="stars-container">
-                <img src={y} />
+                <img src={largeStarsImage} />
+                <p>{reviewsCountRender}</p>
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>
@@ -131,6 +145,17 @@ const BusinessPage = ({sessionUser}) => {
                 <div>{currentBusiness?.phone}</div>
             </div>
             {conditionalRendering}
+            <div id="reviews-container">
+                <ul>
+                    {currentBusinessReviews.map(review => (
+                        <li>
+                            <h1>{review.User.username}</h1>
+                            <img src={smallStars(review.rating)} />
+                            <p>{review.content}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </>
     );
 };
