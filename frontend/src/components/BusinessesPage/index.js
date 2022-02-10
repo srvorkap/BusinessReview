@@ -19,7 +19,7 @@ const BusinessesPage = () => {
     if (!sessionUser) return <Redirect to="/" />;
     return (
         <>
-        <NavLink to='/businesses/new'>New business</NavLink>
+        <NavLink to='/businesses/new' className='no-underscore'>New business</NavLink>
         <ul>
             {businesses?.map(business => {
                 // return <li key={business.id}>{business.name}</li>

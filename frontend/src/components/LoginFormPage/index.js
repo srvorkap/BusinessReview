@@ -65,9 +65,9 @@ function LoginFormPage() {
                         Sign up
                     </NavLink>
                 </div>
-                <div className="signup-login-image">
-                    <img src={signupLoginImage} />
-                </div>
+            </div>
+            <div className="signup-login-image">
+                <img src={signupLoginImage} />
             </div>
         </div>
     );

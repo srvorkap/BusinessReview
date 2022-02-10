@@ -22,6 +22,14 @@ textarea {
     resize: none;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: black
+}
+
 .no-underscore {
     /* list-style-type: none; */
     text-decoration: none;
@@ -83,4 +91,22 @@ textarea {
     line-height: 1.1875;
     box-sizing: border-box;
     width: 100%;
+}
+
+.signup-login-page {
+    display: flex;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-login-form {
+    padding: 0px 15px;
+    margin-right: 50px;
+}
+
+.signup-login-image {
+    padding: 0px 15px;
+    margin-left: 50px;
 }

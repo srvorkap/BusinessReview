@@ -1,0 +1,18 @@
+#navbar-two {
+    padding: 20px;
+    background-color: rgb(211, 35, 35);
+}
+.navbar-links {
+    color: red;
+    margin: 50px;
+    padding: 5%;
+    text-decoration: none;
+    color:grey
+}
+
+.navbar-links:visited { color: white; }
+.navbar-links:hover { color: none; }
+
+#business-navlink {
+    color: white
+}

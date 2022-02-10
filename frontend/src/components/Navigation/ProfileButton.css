@@ -1,0 +1,44 @@
+
+
+#github-icon {
+    color: white;
+  }
+
+  /* #github-icon:visited {
+    color: gray;
+  } */
+  #github-icon:hover {
+    color: none
+  }
+
+  #icon-profile:hover {
+    color: rgb(211, 35, 35);
+    cursor: pointer;
+  }
+
+  #profile-dropdown {
+    display: inline-block;
+    margin-left: 100px;
+    color: white
+  }
+
+  #linkedin-icon {
+    margin-left: 100px;
+    color: white;
+  }
+
+  #linkedin-icon:hover {
+    cursor: pointer;
+  }
+
+  #logout-button {
+    color: white;
+    background-color: rgb(211, 35, 35);
+    border-color: rgb(211, 35, 35);
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+  }
+
+  #logout-button:hover {
+    color: none;
+  }

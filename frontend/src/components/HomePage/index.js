@@ -43,7 +43,7 @@ const HomePage = () => {
                 <Navigation isLoaded={isLoaded} />
                 {isLoaded && (
                     <>
-                        <h1>something else in the header</h1>
+                        <h1>something else in header</h1>
                         <img src={yelpBurst} />
                     </>
                 )}
@@ -53,7 +53,7 @@ const HomePage = () => {
                     <h1>some restaurants</h1>
                 </div>
                 <div>
-                    <button onClick={demoLogin}>Demo</button>
+                    <button className=' red buttons' onClick={demoLogin}>Demo</button>
                 </div>
             </div>
         </>
