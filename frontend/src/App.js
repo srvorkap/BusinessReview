@@ -13,13 +13,22 @@ import EditBusinessForm from "./components/EditBusinessForm";
 import CreateReviewForm from "./components/CreateReviewForm";
 import ErrorPage from "./components/ErrorPage";
 import { useSelector } from 'react-redux'
+import { getBusinesses } from "./store/business";
+import { getReviews } from "./store/review";
 
 function App() {
     const sessionUser = useSelector(state => state?.session?.user);
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
-        dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+        // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+        const getReady = async() => {
+            await dispatch(sessionActions.restoreUser())
+            await dispatch(getBusinesses())
+            await dispatch(getReviews())
+            setIsLoaded(true)
+        }
+        getReady()
     }, [dispatch]);
 
     return (
@@ -48,7 +57,7 @@ function App() {
                                 <BusinessPage sessionUser={sessionUser}/>
                             </Route>
                             <Route path="/businesses" exact>
-                                <BusinessesPage />
+                                <BusinessesPage sessionUser={sessionUser} />
                             </Route>
                             <Route path="/reviews/new">
                                 <CreateReviewForm />

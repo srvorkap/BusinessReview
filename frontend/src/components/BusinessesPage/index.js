@@ -6,16 +6,18 @@ import SingleBusiness from "./SingleBusiness";
 import "./BusinessesPage.css";
 import { NavLink, Redirect } from "react-router-dom";
 
-const BusinessesPage = () => {
+const BusinessesPage = ({ sessionUser }) => {
     const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
-    const sessionUser = useSelector(state => state?.session?.user);
-
+    // const sessionUser = useSelector(state => state?.session?.user);
+    const reviewsObject = useSelector(store => store?.review?.entries)
+    const reviews = Object?.values(reviewsObject)
+    // const filtered 
 
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(getBusinesses());
-    }, [dispatch]);
+    // useEffect(() => {
+    //     dispatch(getBusinesses());
+    // }, [dispatch]);
     if (!sessionUser) return <Redirect to="/" />;
     return (
         <>
@@ -36,7 +38,13 @@ const BusinessesPage = () => {
                                 <div>
                                     {business?.id}. {business?.name}
                                 </div>
-                                <div>RATING</div>
+                                <div>
+                                    <ul>
+                                        {reviews?.map(review => (
+                                            <li>{review.content}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                                 <div>{business?.hours}</div>
                                 <div>{business?.phone}</div>
                             </div>
