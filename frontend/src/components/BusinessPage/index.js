@@ -5,6 +5,7 @@ import { deleteBusiness } from "../../store/business";
 import "./BusinessPage.css";
 
 import { smallStars, largeStars } from "../../helper";
+import { deleteReview } from "../../store/review";
 
 const BusinessPage = ({ sessionUser }) => {
     const { businessId } = useParams();
@@ -17,7 +18,7 @@ const BusinessPage = ({ sessionUser }) => {
     const reviewsObject = useSelector(store => store?.review?.entries);
     const reviews = Object?.values(reviewsObject);
     const currentBusinessReviews = reviews?.filter(
-        review => review.businessId === businessIdNumerical
+        review => review?.businessId === businessIdNumerical
     );
 
     const ratingArr = currentBusinessReviews.map(review => review.rating);
@@ -70,6 +71,11 @@ const BusinessPage = ({ sessionUser }) => {
         e.preventDefault();
         history.push(`/businesses/${businessId}/reviews/new`);
     };
+
+    // const onEditReview = e => {
+    //     e.preventDefault()
+    //     history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
+    // }
 
     // conditional rendering of write a review and edit/delete buttons
     let conditionalRendering;
@@ -135,23 +141,34 @@ const BusinessPage = ({ sessionUser }) => {
                 />
             </div>
             <div className="stars-container">
-                    <img src={largeStarsImage} />
-                    <p>{reviewsCountRender}</p>
+                <img src={largeStarsImage} />
+                <p>{reviewsCountRender}</p>
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>
-                <div>RATING</div>
                 <div>{currentBusiness?.hours}</div>
                 <div>{currentBusiness?.phone}</div>
             </div>
             {conditionalRendering}
             <div id="reviews-container">
                 <ul>
-                    {currentBusinessReviews.map(review => (
+                    {currentBusinessReviews?.map(review => (
                         <li key={review.id}>
                             <h1>{review?.User?.username}</h1>
                             <img src={smallStars(review.rating)} />
                             <p>{review.content}</p>
+                            {sessionUser.id === review.userId ? (
+                                <div>
+                                    <button onClick={e => {
+                                        e.preventDefault()
+                                        history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
+                                    }}>Edit</button>
+                                    {/* <button onClick={e => {
+                                        e.preventDefault()
+                                        dispatch(deleteReview(review.id));
+                                    }}>Delete</button> */}
+                                </div>
+                            ) : null}
                         </li>
                     ))}
                 </ul>

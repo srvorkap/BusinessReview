@@ -7,7 +7,7 @@ import "./CreateReviewForm.css";
 
 const CreateReviewForm = ({ sessionUser }) => {
     console.log(sessionUser)
-    const { businessId } = useParams(); // sjdfajsdfja;ksldfjkajdfkja;dflkdjfklasjdflkajflkajflkjfkljfklasjdfklajsdflasjdflkajdflkasjflkasjdflkasjdflkasjdfkalsdfjaslkdjf
+    const { businessId } = useParams();
     const businessIdNumerical = +businessId
 
     const businessesObject = useSelector(store => store?.business?.entries);

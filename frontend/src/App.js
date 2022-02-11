@@ -62,6 +62,9 @@ function App() {
                             <Route path="/businesses/:businessId/reviews/new">
                                 <CreateReviewForm sessionUser={sessionUser} />
                             </Route>
+                            <Route path='/businesses/:businessId/reviews/:reviewId/edit'>
+                                <EditReviewForm sessionUser={sessionUser} />
+                            </Route>
                             <Route>
                                 <ErrorPage sessionUser={sessionUser} />
                             </Route>
