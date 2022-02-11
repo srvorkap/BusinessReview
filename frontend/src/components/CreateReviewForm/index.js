@@ -7,7 +7,7 @@ import "./CreateReviewForm.css";
 
 const CreateReviewForm = ({ sessionUser }) => {
     const { businessId } = useParams();
-    const businessIdNumerical = +businessId
+    const businessIdNumerical = +businessId;
 
     const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
@@ -29,7 +29,7 @@ const CreateReviewForm = ({ sessionUser }) => {
             rating,
             content,
             userId: sessionUser.id,
-            businessId: businessIdNumerical
+            businessId: businessIdNumerical,
         };
         const data = await dispatch(postReview(review));
         if (data && data.errors) setErrors(data.errors);
@@ -40,8 +40,8 @@ const CreateReviewForm = ({ sessionUser }) => {
     };
 
     const onCancel = e => {
-        e.preventDefault()
-        history.goBack()
+        e.preventDefault();
+        history.goBack();
     };
     if (!sessionUser) return <Redirect to="/" />;
     return (
@@ -54,8 +54,14 @@ const CreateReviewForm = ({ sessionUser }) => {
                             <li key={error}>{error}</li>
                         ))}
                     </ul>
-                    <select name="rating" onChange={e => setRating(e.target.value)}>
-                        <option selected disabled>Select your rating</option>
+                    {/* <label htmlFor="rating">Select your rating</label> */}
+                    <select
+                        // id="rating"
+                        name="rating"
+                        value={rating}
+                        onChange={e => setRating(e.target.value)}
+                    >
+                        <option value='11'>Select your rating</option>
                         <option value={1}>Not good</option>
                         <option value={2}>Could've been better</option>
                         <option value={3}>OK</option>
