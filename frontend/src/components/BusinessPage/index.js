@@ -85,6 +85,18 @@ const BusinessPage = ({ sessionUser }) => {
         dispatch(getReviews());
     }, [dispatch]);
 
+    // first part of conditional rendering
+
+    let isReviewed = false;
+    for (const review of currentBusinessReviews) {
+        if (review?.userId === sessionUser?.id) {
+            isReviewed = true;
+            console.log(review?.userId);
+            console.log(sessionUser?.id);
+            console.log(isReviewed);
+        }
+    }
+
     // conditional rendering of write a review and edit/delete buttons
     let conditionalRendering;
     if (sessionUser?.id === currentBusiness?.userId)
@@ -133,11 +145,18 @@ const BusinessPage = ({ sessionUser }) => {
                 </div>
             </>
         );
-    else
+    else if (sessionUser?.id !== currentBusiness?.userId && !isReviewed)
         conditionalRendering = (
-            <button type="button" className="red buttons" onClick={onReview}>
-                Write a Review
-            </button>
+            <>
+                <button
+                    type="button"
+                    className="red buttons"
+                    onClick={onReview}
+                >
+                    Write a Review
+                </button>
+
+            </>
         );
     if (!sessionUser) return <Redirect to="/" />;
     return (
@@ -156,7 +175,9 @@ const BusinessPage = ({ sessionUser }) => {
             <div>
                 <div>{currentBusiness?.description}</div>
                 <div>{currentBusiness?.hours}</div>
-                <div>{currentBusiness?.city}, {currentBusiness?.state}</div>
+                <div>
+                    {currentBusiness?.city}, {currentBusiness?.state}
+                </div>
                 <div>{currentBusiness?.address}</div>
                 <div>{currentBusiness?.phone}</div>
             </div>
@@ -170,10 +191,16 @@ const BusinessPage = ({ sessionUser }) => {
                             <p>{review.content}</p>
                             {sessionUser.id === review.userId ? (
                                 <div>
-                                    <button onClick={e => {
-                                        e.preventDefault()
-                                        history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
-                                    }}>Edit</button>
+                                    <button
+                                        onClick={e => {
+                                            e.preventDefault();
+                                            history.push(
+                                                `/businesses/${businessId}/reviews/${review.id}/edit`
+                                            );
+                                        }}
+                                    >
+                                        Edit
+                                    </button>
                                     {/* <button onClick={e => {
                                         e.preventDefault()
                                         dispatch(deleteReview(review.id));
