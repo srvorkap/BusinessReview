@@ -40,8 +40,8 @@ const BusinessesPage = ({ sessionUser }) => {
                                     <img src={mediumStars(business?.Reviews?.length !== 0 ? (business?.Reviews?.map(review => review?.rating)?.reduce((prev, current) => prev + current, 0)/business?.Reviews?.length) : 0)} />
                                     <p>{business?.Reviews?.length === 0 ? null : business?.Reviews?.length === 1 ? '1 review' : `${business?.Reviews?.length} reviews` }</p>
                                 </div>
-                                <div>{business?.hours}</div>
-                                <div>{business?.phone}</div>
+                                <div>{business?.description}</div>
+                                <div>{business?.city}, {business?.state}</div>
                             </div>
                         </NavLink>
                     </div>

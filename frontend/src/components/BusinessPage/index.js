@@ -145,13 +145,16 @@ const BusinessPage = ({ sessionUser }) => {
                     className="single-business-img"
                 />
             </div>
+            <div>{currentBusiness?.name}</div>
             <div className="stars-container">
                 <img src={largeStarsImage} />
                 <p>{reviewsCountRender}</p>
             </div>
             <div>
-                <div>{currentBusiness?.name}</div>
+                <div>{currentBusiness?.description}</div>
                 <div>{currentBusiness?.hours}</div>
+                <div>{currentBusiness?.city}, {currentBusiness?.state}</div>
+                <div>{currentBusiness?.address}</div>
                 <div>{currentBusiness?.phone}</div>
             </div>
             {conditionalRendering}
