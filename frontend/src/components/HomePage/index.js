@@ -53,7 +53,7 @@ const HomePage = () => {
                     <h1>some restaurants</h1>
                 </div>
                 <div>
-                    <button className=' red buttons' onClick={demoLogin}>Demo</button>
+                    <button className='red buttons' onClick={demoLogin}>Demo</button>
                 </div>
             </div>
         </>
