@@ -6,7 +6,6 @@ import { smallStars, mediumStars } from "../../helper";
 import "./CreateReviewForm.css";
 
 const CreateReviewForm = ({ sessionUser }) => {
-    console.log(sessionUser)
     const { businessId } = useParams();
     const businessIdNumerical = +businessId
 

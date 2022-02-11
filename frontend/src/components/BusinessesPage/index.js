@@ -1,10 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getBusinesses } from "../../store/business";
-import { getBusinessesActionCreator } from "../../store/business";
-import SingleBusiness from "./SingleBusiness";
 import "./BusinessesPage.css";
 import { NavLink, Redirect } from "react-router-dom";
+import { getBusinesses } from "../../store/business";
 import { mediumStars } from "../../helper";
 
 const BusinessesPage = ({ sessionUser }) => {
@@ -16,9 +14,9 @@ const BusinessesPage = ({ sessionUser }) => {
     // const filtered = reviews?.filter(review => review.businessId === businesses.id)
 
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getBusinesses());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(getBusinesses());
+    }, [dispatch]);
     if (!sessionUser) return <Redirect to="/" />;
     return (
         <>
@@ -28,7 +26,7 @@ const BusinessesPage = ({ sessionUser }) => {
                 return (
                     <div className="single-business" key={business?.id}>
                         <NavLink to={`/businesses/${business?.id}`}>
-                            <div>
+                            <div key={business?.id}>
                                 <img
                                     src={business?.imageURL}
                                     className="single-business-img"
@@ -39,8 +37,8 @@ const BusinessesPage = ({ sessionUser }) => {
                                     {business?.name}
                                 </div>
                                 <div className="stars-container">
-                                    <img src={mediumStars(business.Reviews.length !== 0 ? (business.Reviews.map(review => review.rating).reduce((prev, current) => prev + current, 0)/business.Reviews.length) : 0)} />
-                                    <p>{business.Reviews.length === 0 ? null : business.Reviews.length === 1 ? '1 review' : `${business.Reviews.length} reviews` }</p>
+                                    <img src={mediumStars(business?.Reviews?.length !== 0 ? (business?.Reviews?.map(review => review?.rating)?.reduce((prev, current) => prev + current, 0)/business?.Reviews?.length) : 0)} />
+                                    <p>{business?.Reviews?.length === 0 ? null : business?.Reviews?.length === 1 ? '1 review' : `${business?.Reviews?.length} reviews` }</p>
                                 </div>
                                 <div>{business?.hours}</div>
                                 <div>{business?.phone}</div>

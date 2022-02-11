@@ -38,9 +38,11 @@ router.get(
     "/",
     requireAuth,
     asyncHandler(async (req, res) => {
-        const businesses = await Business.findAll({
+        const businesses = await Business.findAll(
+            {
             include: Review
-        });
+        }
+        );
         return res.json(businesses);
     })
 );
@@ -138,7 +140,19 @@ router.delete(
     requireAuth,
     asyncHandler(async (req, res) => {
         const { id } = req.body;
-        const business = await Business.findByPk(+id)
+        const idNumerical = +id
+        const business = await Business.findByPk(idNumerical)
+        const reviews = await Review.findAll({
+            where: { businessId: idNumerical}
+        })
+        reviews.forEach(async (review) => {
+            await review.destroy();
+        })
+        // await Review.destroy({
+        //     where: {
+        //         id  // Destorys all the pets where the petType is 1
+        //     }
+        // });
         await business.destroy()
         res.json({ id });
     })

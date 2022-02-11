@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { NavLink, useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
+import { getBusinesses } from "../../store/business";
 import "./BusinessPage.css";
 
 import { smallStars, largeStars } from "../../helper";
@@ -76,6 +77,10 @@ const BusinessPage = ({ sessionUser }) => {
     //     e.preventDefault()
     //     history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
     // }
+
+    // useEffect(() => {
+    //     dispatch(getBusinesses());
+    // }, [dispatch]);
 
     // conditional rendering of write a review and edit/delete buttons
     let conditionalRendering;
