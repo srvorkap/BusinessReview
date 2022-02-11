@@ -5,10 +5,12 @@ import { getBusinessesActionCreator } from "../../store/business";
 import SingleBusiness from "./SingleBusiness";
 import "./BusinessesPage.css";
 import { NavLink, Redirect } from "react-router-dom";
+import { mediumStars } from "../../helper";
 
 const BusinessesPage = ({ sessionUser }) => {
     const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
+    console.log(businesses)
     // const sessionUser = useSelector(state => state?.session?.user);
     const reviewsObject = useSelector(store => store?.review?.entries)
     const reviews = Object?.values(reviewsObject)
@@ -38,13 +40,9 @@ const BusinessesPage = ({ sessionUser }) => {
                                 <div>
                                     {business?.name}
                                 </div>
-                                {/* <div>
-                                    <ul>
-                                        {(reviews?.filter(review => review.businessId === businesses.id))?.map(fReview => (
-                                            <li>{fReview.content}</li>
-                                        ))}
-                                    </ul>
-                                </div> */}
+                                <div>
+                                    <img src={mediumStars(business.Reviews.length !== 0 ? (business.Reviews.map(review => review.rating).reduce((prev, current) => prev + current, 0)/business.Reviews.length) : 0)} />
+                                </div>
                                 <div>{business?.hours}</div>
                                 <div>{business?.phone}</div>
                             </div>
