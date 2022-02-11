@@ -59,8 +59,8 @@ function App() {
                             <Route path="/businesses" exact>
                                 <BusinessesPage sessionUser={sessionUser} />
                             </Route>
-                            <Route path="/reviews/new">
-                                <CreateReviewForm />
+                            <Route path="/businesses/:businessId/reviews/new">
+                                <CreateReviewForm sessionUser={sessionUser} />
                             </Route>
                             <Route>
                                 <ErrorPage sessionUser={sessionUser} />

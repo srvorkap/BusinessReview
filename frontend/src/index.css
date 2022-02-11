@@ -20,6 +20,11 @@ ul {
 
 textarea {
     resize: none;
+    border: none;
+    border-style: none;
+    border-color: transparent;
+    border: 0;
+    overflow: auto;
 }
 
 a {
@@ -27,7 +32,7 @@ a {
 }
 
 a:visited {
-    color: black
+    color: black;
 }
 
 .no-underscore {
@@ -109,4 +114,9 @@ a:visited {
 .signup-login-image {
     padding: 0px 15px;
     margin-left: 50px;
+}
+
+.stars-container {
+    display: flex;
+    flex-direction: row;
 }

@@ -68,7 +68,7 @@ const BusinessPage = ({ sessionUser }) => {
 
     const onReview = e => {
         e.preventDefault();
-        history.push("/reviews/new");
+        history.push(`/businesses/${businessId}/reviews/new`);
     };
 
     // conditional rendering of write a review and edit/delete buttons
@@ -134,9 +134,9 @@ const BusinessPage = ({ sessionUser }) => {
                     className="single-business-img"
                 />
             </div>
-            <div id="stars-container">
-                <img src={largeStarsImage} />
-                <p>{reviewsCountRender}</p>
+            <div className="stars-container">
+                    <img src={largeStarsImage} />
+                    <p>{reviewsCountRender}</p>
             </div>
             <div>
                 <div>{currentBusiness?.name}</div>
@@ -148,8 +148,8 @@ const BusinessPage = ({ sessionUser }) => {
             <div id="reviews-container">
                 <ul>
                     {currentBusinessReviews.map(review => (
-                        <li>
-                            <h1>{review.User.username}</h1>
+                        <li key={review.id}>
+                            <h1>{review?.User?.username}</h1>
                             <img src={smallStars(review.rating)} />
                             <p>{review.content}</p>
                         </li>

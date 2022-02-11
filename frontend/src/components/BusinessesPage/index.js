@@ -10,7 +10,6 @@ import { mediumStars } from "../../helper";
 const BusinessesPage = ({ sessionUser }) => {
     const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
-    console.log(businesses)
     // const sessionUser = useSelector(state => state?.session?.user);
     const reviewsObject = useSelector(store => store?.review?.entries)
     const reviews = Object?.values(reviewsObject)
@@ -26,9 +25,8 @@ const BusinessesPage = ({ sessionUser }) => {
         <NavLink to='/businesses/new' className='no-underscore'>New business</NavLink>
         <ul>
             {businesses?.map(business => {
-                // return <li key={business.id}>{business.name}</li>
                 return (
-                    <div className="single-business">
+                    <div className="single-business" key={business?.id}>
                         <NavLink to={`/businesses/${business?.id}`}>
                             <div>
                                 <img
@@ -40,8 +38,9 @@ const BusinessesPage = ({ sessionUser }) => {
                                 <div>
                                     {business?.name}
                                 </div>
-                                <div>
+                                <div className="stars-container">
                                     <img src={mediumStars(business.Reviews.length !== 0 ? (business.Reviews.map(review => review.rating).reduce((prev, current) => prev + current, 0)/business.Reviews.length) : 0)} />
+                                    <p>{business.Reviews.length === 0 ? null : business.Reviews.length === 1 ? '1 review' : `${business.Reviews.length} reviews` }</p>
                                 </div>
                                 <div>{business?.hours}</div>
                                 <div>{business?.phone}</div>

@@ -10,12 +10,10 @@ const router = express.Router();
 const reviewValidator = [
     check("rating")
         .exists({ checkFalsy: true })
-        .withMessage("Please rate this business."),
+        .withMessage("Please select your rating."),
     check("content")
         .exists({ checkFalsy: true })
         .withMessage("Please write a review.")
-        .isLength({ min: 2 })
-        .withMessage("Please add more details so we can post this review."),
 ];
 
 router.get(
