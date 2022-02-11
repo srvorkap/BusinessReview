@@ -6,7 +6,7 @@ import { getBusinesses } from "../../store/business";
 import "./BusinessPage.css";
 
 import { smallStars, largeStars } from "../../helper";
-import { deleteReview } from "../../store/review";
+import { deleteReview, getReviews } from "../../store/review";
 
 const BusinessPage = ({ sessionUser }) => {
     const { businessId } = useParams();
@@ -78,9 +78,12 @@ const BusinessPage = ({ sessionUser }) => {
     //     history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
     // }
 
-    // useEffect(() => {
-    //     dispatch(getBusinesses());
-    // }, [dispatch]);
+    useEffect(() => {
+        dispatch(getBusinesses());
+    }, [dispatch]);
+    useEffect(() => {
+        dispatch(getReviews());
+    }, [dispatch]);
 
     // conditional rendering of write a review and edit/delete buttons
     let conditionalRendering;
