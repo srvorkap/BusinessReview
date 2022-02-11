@@ -68,8 +68,8 @@ const EditReviewForm = ({ sessionUser }) => {
                             <li key={error}>{error}</li>
                         ))}
                     </ul>
-                    <select name="rating" onChange={e => setEditedRating(e.target.value)}>
-                        <option disabled>Select your rating</option>
+                    <label htmlFor="rating">Select your rating</label>
+                    <select name="rating" value={editedRating} onChange={e => setEditedRating(e.target.value)}>
                         <option value={1}>Not good</option>
                         <option value={2}>Could've been better</option>
                         <option value={3}>OK</option>
