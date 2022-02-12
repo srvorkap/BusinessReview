@@ -81,15 +81,13 @@ const CreateBusinessForm = ({sessionUser}) => {
                         />
                     </div>
                     <div>
-                        <textarea
+                        <input
                         className='signup-login-inputs'
                         type='text'
                         name='description'
                         value={description}
                         onChange={e => setDescription(e.target.value)}
-                        placeholder='Business Details'
-                        rows="20"
-                        cols="80"
+                        placeholder='Categories'
                         />
                     </div>
                     <div>
