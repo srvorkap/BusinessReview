@@ -86,7 +86,7 @@ function SignupFormPage() {
                 <div className="signup-login">
                     <p>Already on BusinessReview?</p>
                     <NavLink to="/login" id="signup-login-link">
-                        Log in
+                        Log In
                     </NavLink>
                 </div>
             </div>

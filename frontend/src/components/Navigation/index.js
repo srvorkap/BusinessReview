@@ -31,12 +31,12 @@ function Navigation({ isLoaded }) {
                 </div>
                 <div>
                     <NavLink to="/login" className="navbar-links margin-right">
-                        Log in
+                        Log In
                     </NavLink>
                 </div>
                 <div>
                     <NavLink to="/signup" className="navbar-links margin-right">
-                        Sign up
+                        Sign Up
                     </NavLink>
                 </div>
             </>

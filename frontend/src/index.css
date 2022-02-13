@@ -14,6 +14,12 @@ ol {
     line-height: 21px;
 }
 
+/* How to ensure two words stay on the same line when resizing the window */
+/* Log In (for example)*/
+div {
+    white-space: nowrap;
+  }
+
 ul {
     list-style-type: none;
 }
