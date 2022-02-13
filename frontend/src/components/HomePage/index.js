@@ -61,7 +61,7 @@ const HomePage = () => {
                         <div><NavLink to='/signup' className='links margin-right'>Sign Up</NavLink></div>
                     </div>
                     <div>
-                        <button className="red buttons" onClick={demoLogin}>
+                        <button className="red buttons" id='demo-button' onClick={demoLogin}>
                             Demo
                         </button>
                     </div>

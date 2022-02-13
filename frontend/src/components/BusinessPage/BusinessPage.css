@@ -43,3 +43,41 @@
 #comment-user-name {
     font-weight: bold;
 }
+
+#business-page-image {
+    background-size: cover;
+    /* width: 568px;
+    height: 426px; */
+    width: 864px;
+    height: 500px;
+    color: white;
+    font-weight: 600;
+}
+
+#boze {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: end;
+}
+
+#reviews-container {
+    width: 700px;
+    height: 500px;
+}
+
+#text {
+    width: 500px;
+}
+
+#business-page {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.business-page-margin {
+    margin: 20px;
+}

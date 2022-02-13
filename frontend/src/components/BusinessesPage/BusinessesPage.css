@@ -17,9 +17,10 @@
     margin: 24px 0px;
 }
 
-.single-business-img {
+.single-business-image {
     width: 214px;
     height: 214px;
+    object-fit: cover;
 }
 
 #image-container {

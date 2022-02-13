@@ -80,12 +80,12 @@ function SignupFormPage() {
                     <input
                         type="submit"
                         value="Sign Up"
-                        className="red buttons"
+                        className="red buttons signup-login-buttons"
                     />
                 </form>
                 <div className="signup-login">
-                    <p>Already on BusinessReview?</p>
-                    <NavLink to="/login" id="signup-login-link">
+                    <p className="grey">Already on BusinessReview?</p>
+                    <NavLink to="/login" id="login-link">
                         Log In
                     </NavLink>
                 </div>

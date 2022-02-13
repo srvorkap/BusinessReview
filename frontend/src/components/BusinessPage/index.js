@@ -155,40 +155,46 @@ const BusinessPage = ({ sessionUser }) => {
                 >
                     Write a Review
                 </button>
-
             </>
         );
     if (!sessionUser) return <Redirect to="/" />;
     return (
-        <>
-            <div>
-                <img
-                    src={currentBusiness?.imageURL}
-                    className="single-business-img"
-                />
-            </div>
-            <div>{currentBusiness?.name}</div>
-            <div className="stars-container">
-                <img src={largeStarsImage} />
-                <p>{reviewsCountRender}</p>
-            </div>
-            <div>
-                <div>{currentBusiness?.description}</div>
-                <div>{currentBusiness?.hours}</div>
-                <div>
-                    {currentBusiness?.city}, {currentBusiness?.state}
+        <div id='business-page'>
+            <div
+                style={{
+                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(${currentBusiness?.imageURL})`,
+                }}
+                id="business-page-image"
+            >
+                <div id="boze">
+                    <div>
+                        <h1>{currentBusiness?.name}</h1>
+                    </div>
+                    <div className="stars-container">
+                        <img src={largeStarsImage} />
+                        <p>{reviewsCountRender}</p>
+                    </div>
+                    <div>
+                        <div>{currentBusiness?.description}</div>
+                        <div>{currentBusiness?.hours}</div>
+                        <div>
+                            {currentBusiness?.city}, {currentBusiness?.state}
+                        </div>
+                        <div>{currentBusiness?.address}</div>
+                        <div>{currentBusiness?.phone}</div>
+                    </div>
                 </div>
-                <div>{currentBusiness?.address}</div>
-                <div>{currentBusiness?.phone}</div>
             </div>
-            {conditionalRendering}
+
+            <div>{conditionalRendering}</div>
+
             <div id="reviews-container">
-                <ul>
+                <div>
                     {currentBusinessReviews?.map(review => (
-                        <li key={review.id}>
+                        <div key={review.id}>
                             <h1>{review?.User?.username}</h1>
                             <img src={smallStars(review.rating)} />
-                            <p>{review.content}</p>
+                            <p id="text">{review.content}</p>
                             {sessionUser.id === review.userId ? (
                                 <div>
                                     <button
@@ -207,11 +213,11 @@ const BusinessPage = ({ sessionUser }) => {
                                     }}>Delete</button> */}
                                 </div>
                             ) : null}
-                        </li>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
-        </>
+        </div>
     );
 };
 
