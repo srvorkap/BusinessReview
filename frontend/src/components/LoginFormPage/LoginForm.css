@@ -1,0 +1,11 @@
+.signup-login-buttons {
+    margin: 12px 0px;
+}
+
+#signup-link {
+    color: rgb(0, 115, 187);
+}
+
+#signup-link:hover {
+    text-decoration: underline;
+}

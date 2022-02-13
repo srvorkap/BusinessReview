@@ -26,7 +26,7 @@ function App() {
         const getReady = async() => {
             await dispatch(sessionActions.restoreUser())
             // await dispatch(getBusinesses())
-            await dispatch(getReviews())
+            // await dispatch(getReviews())
             setIsLoaded(true)
         }
         getReady()

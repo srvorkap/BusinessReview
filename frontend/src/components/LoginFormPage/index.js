@@ -56,12 +56,12 @@ function LoginFormPage() {
                     <input
                         type="submit"
                         value="Log In"
-                        className="red buttons"
+                        className="red buttons signup-login-buttons"
                     />
                 </form>
                 <div className="signup-login">
-                    <p>New to BusinessReview?</p>
-                    <NavLink to="/signup" id="signup-login-link">
+                    <p className="grey">New to BusinessReview?</p>
+                    <NavLink to="/signup" id="signup-link">
                         Sign Up
                     </NavLink>
                 </div>

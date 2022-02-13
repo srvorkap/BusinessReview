@@ -42,7 +42,7 @@ const BusinessesPage = ({ sessionUser }) => {
                                     <div id="image-container">
                                         <img
                                             src={business?.imageURL}
-                                            className="single-business-img"
+                                            className="single-business-image"
                                         />
                                     </div>
                                     <div id="details-container">
