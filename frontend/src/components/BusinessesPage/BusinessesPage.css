@@ -1,7 +1,9 @@
-
 .single-business {
-    width: 752px;
-    height: 279px;
+    width: 866px;
+    height: 301px;
+    display: flex;
+    justify-self: center;
+    align-self: center;
     padding: 24;
     border: rgb(235, 235, 235) solid 1px;
     border-radius: 4px;
@@ -9,7 +11,39 @@
     margin-bottom: 24px;
 }
 
+.inner-single-business {
+    display: flex;
+    padding: 24px;
+    margin: 24px 0px;
+}
+
 .single-business-img {
-    width: 150px;
-    height: 150px;
+    width: 214px;
+    height: 214px;
+}
+
+#image-container {
+    margin-right: 24px;
+}
+
+#big-business {
+    display: flex;
+    flex-direction: column;
+}
+
+#details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60%;
+}
+
+#review {
+    margin-left: 10px;
+}
+
+#new-business {
+    position: absolute;
+    top: 200px;
+    right: 5%;
 }

@@ -9,7 +9,7 @@ module.exports = {
                     imageURL:
                         "https://s3-media0.fl.yelpcdn.com/bphoto/YYc-edoe4RyC--a0uIO6bg/o.jpg",
                     name: "Wicked Restaurant and Wine Bar",
-                    description: "",
+                    description: "Pizza, American (New), Gluten-Free",
                     address: "680 Falmouth Rd",
                     city: "Mashpee",
                     state: "MA",
