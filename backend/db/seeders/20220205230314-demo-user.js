@@ -78,26 +78,6 @@ module.exports = {
 
     down: (queryInterface, Sequelize) => {
         const Op = Sequelize.Op;
-        return queryInterface.bulkDelete(
-            "Users",
-            {
-                username: {
-                    [Op.in]: [
-                        "Demo-lition",
-                        "Mary",
-                        "John",
-                        "James",
-                        "Emily",
-                        "Robert",
-                        "Anna",
-                        "Michael",
-                        "Susan",
-                        "David",
-                        "Lisa",
-                    ],
-                },
-            },
-            {}
-        );
+        return queryInterface.bulkDelete("Users", null, {});
     },
 };
