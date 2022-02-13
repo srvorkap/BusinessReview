@@ -4,8 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import homePageImage from "../../images/homePage.jpeg";
 import backgroundImage from "../../images/homePageTwo.jpeg";
+import backgroundImageThree from "../../images/homePageThree.jpeg";
 import Navigation from "../Navigation";
-import yelpBurst from '../../images/yelp_burst.png';
+import yelpBurst from "../../images/yelp_burst.png";
 import "./HomePage.css";
 
 const HomePage = () => {
@@ -38,22 +39,32 @@ const HomePage = () => {
         <>
             <div
                 style={{ backgroundImage: `url(${backgroundImage})` }}
-                id="homepage-nav"
+                id="homepage-image"
             >
                 <Navigation isLoaded={isLoaded} />
                 {isLoaded && (
-                    <>
-                        <h1>something else in header</h1>
-                        <img src={yelpBurst} />
-                    </>
+                    <div id="title-and-logo">
+                        <div>
+                            <h1>Business Review</h1>
+                        </div>
+                        <div>
+                            <img src={yelpBurst} />
+                        </div>
+                    </div>
                 )}
-            </div>
-            <div>
-                <div>
-                    <h1>some restaurants</h1>
-                </div>
-                <div>
-                    <button className='red buttons' onClick={demoLogin}>Demo</button>
+                <div id='login-signup-demo'>
+                    <div>
+                        <p>Review your favorite businesses and share your experiences with our community</p>
+                    </div>
+                    <div id='login-signup'>
+                        <div><NavLink to='/login' className='links margin-right'>Log In</NavLink></div>
+                        <div><NavLink to='/signup' className='links margin-right'>Sign Up</NavLink></div>
+                    </div>
+                    <div>
+                        <button className="red buttons" onClick={demoLogin}>
+                            Demo
+                        </button>
+                    </div>
                 </div>
             </div>
         </>

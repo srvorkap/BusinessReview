@@ -1,12 +1,40 @@
 #homepage-image {
-    width: 100%;
-}
-
-#background-image {
-    background-image: url('../../images/homePageTwo.jpeg');
-}
-
-#homepage-nav {
     color: white;
-    height: 600px;
+    height: 100vh;
 }
+
+#title-and-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+}
+
+#login-signup-demo {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center
+}
+#login-signup {
+    display: flex;
+    /* align-self: center; */
+    /* justify-self: center; */
+}
+
+.links {
+    color: red;
+    /* margin: 50px; */
+    /* padding: 5%; */
+    text-decoration: none;
+    color:grey
+}
+
+.margin-right {
+    margin: 0px 75px;
+    /* margin-right: 150px; */
+}
+
+.links:visited { color: white; }
+.links:hover { color: none; }
