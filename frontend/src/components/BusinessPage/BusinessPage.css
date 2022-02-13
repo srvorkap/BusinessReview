@@ -59,11 +59,13 @@
     height: 100%;
     flex-direction: column;
     justify-content: end;
+    padding: 5px;
 }
 
 #reviews-container {
     width: 700px;
     height: 500px;
+    display: flex;
 }
 
 #text {
@@ -80,4 +82,26 @@
 
 .business-page-margin {
     margin: 20px;
+}
+
+#single-review {
+    padding-bottom: 20px;
+    width: 500px;
+    color: rgb(45, 46, 47);
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#edit-comment {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    align-self: end;
+}
+
+#id gospode {
+    display: flex;
+}
+
+#business-page-image {
+    margin-bottom: 20px;
 }

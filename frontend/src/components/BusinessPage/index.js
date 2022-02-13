@@ -159,7 +159,7 @@ const BusinessPage = ({ sessionUser }) => {
         );
     if (!sessionUser) return <Redirect to="/" />;
     return (
-        <div id='business-page'>
+        <div id="business-page">
             <div
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(${currentBusiness?.imageURL})`,
@@ -191,13 +191,15 @@ const BusinessPage = ({ sessionUser }) => {
             <div id="reviews-container">
                 <div>
                     {currentBusinessReviews?.map(review => (
-                        <div key={review.id}>
-                            <h1>{review?.User?.username}</h1>
+                        <div key={review.id} id="single-review">
+                            <h3>{review?.User?.username}</h3>
                             <img src={smallStars(review.rating)} />
                             <p id="text">{review.content}</p>
                             {sessionUser.id === review.userId ? (
-                                <div>
+                                <div id='gospode'>
                                     <button
+                                        className="red"
+                                        id="edit-comment"
                                         onClick={e => {
                                             e.preventDefault();
                                             history.push(
@@ -207,10 +209,6 @@ const BusinessPage = ({ sessionUser }) => {
                                     >
                                         Edit
                                     </button>
-                                    {/* <button onClick={e => {
-                                        e.preventDefault()
-                                        dispatch(deleteReview(review.id));
-                                    }}>Delete</button> */}
                                 </div>
                             ) : null}
                         </div>
