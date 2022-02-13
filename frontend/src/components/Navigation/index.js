@@ -25,17 +25,17 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <div>
-                    <NavLink exact to="/" className="navbar-links margin-right">
+                    <NavLink exact to="/" className="links margin-right">
                         Home
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to="/login" className="navbar-links margin-right">
+                    <NavLink to="/login" className="links margin-right">
                         Log In
                     </NavLink>
                 </div>
                 <div>
-                    <NavLink to="/signup" className="navbar-links margin-right">
+                    <NavLink to="/signup" className="links margin-right">
                         Sign Up
                     </NavLink>
                 </div>

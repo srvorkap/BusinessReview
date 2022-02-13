@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
 }
-.navbar-links {
+.links {
     color: red;
     /* margin: 50px; */
     /* padding: 5%; */
@@ -27,8 +27,8 @@
     /* margin-right: 150px; */
 }
 
-.navbar-links:visited { color: white; }
-.navbar-links:hover { color: none; }
+.links:visited { color: white; }
+.links:hover { color: none; }
 
 #business-navlink {
     color: white
