@@ -105,3 +105,12 @@
 #business-page-image {
     margin-bottom: 20px;
 }
+
+#reviews-counter {
+    margin-left: 10px;
+    align-self: center;
+}
+
+#business-page-stars-container {
+    display: flex;
+}

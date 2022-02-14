@@ -170,9 +170,9 @@ const BusinessPage = ({ sessionUser }) => {
                     <div>
                         <h1>{currentBusiness?.name}</h1>
                     </div>
-                    <div className="stars-container">
+                    <div className="stars-container" id="business-page-stars-container">
                         <img src={largeStarsImage} />
-                        <p>{reviewsCountRender}</p>
+                        <p id="reviews-counter">{reviewsCountRender}</p>
                     </div>
                     <div>
                         <div>{currentBusiness?.description}</div>
