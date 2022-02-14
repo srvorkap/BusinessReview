@@ -1,0 +1,21 @@
+#create-business-page {
+    display: flex;
+    height: 80vh;
+    /* width: 100vh; */
+}
+
+#create-business-page-inner {
+    display: flex;
+    align-self: center;
+    width: 100vw;
+    justify-self: center;
+}
+
+#create-business-button {
+    width: 100px;
+}
+
+#create-business-form {
+    margin-right: 100px;
+    padding-right: 100px;
+}

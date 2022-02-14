@@ -62,7 +62,7 @@ const EditReviewForm = ({ sessionUser }) => {
         <div id="edit-review-container">
             <div id="inner-edit-review-container">
                 <h1 id="business-title">{currentBusiness.name}</h1>
-                <form onSubmit={onSubmit} >
+                <form onSubmit={onSubmit} id='gospode-dva'>
                     <div id="bozeee">
                         <ul className="errors">
                             {errors?.map(error => (
