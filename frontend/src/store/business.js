@@ -84,7 +84,7 @@ export const deleteBusiness = id => async dispatch => {
     const data = res.json();
 
     if (res.ok) {
-        dispatch(deleteBusinessActionCreator(data));
+        dispatch(deleteBusinessActionCreator(id));
     } else {
         throw res;
     }
@@ -124,8 +124,7 @@ const businessReducer = (state = initialState, action) => {
         case DELETE_BUSINESS: {
             newState = { ...state };
             newState.entries = { ...newState.entries, [action.id]: undefined };
-            const newestState = { ...newState };
-            return newestState;
+            return newState;
         }
         default:
             return state;

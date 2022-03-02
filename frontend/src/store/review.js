@@ -84,7 +84,7 @@ export const deleteReview = id => async dispatch => {
     const data = res.json();
 
     if (res.ok) {
-        dispatch(deleteReviewActionCreator(data));
+        dispatch(deleteReviewActionCreator(id));
     } else {
         throw res;
     }
@@ -124,8 +124,7 @@ const reviewReducer = (state = initialState, action) => {
         case DELETE_REVIEW: {
             newState = { ...state };
             newState.entries = { ...newState.entries, [action.id]: undefined };
-            const newestState = { ...newState };
-            return newestState;
+            return newState;
         }
         default:
             return state;

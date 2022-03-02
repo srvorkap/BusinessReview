@@ -209,6 +209,16 @@ const BusinessPage = ({ sessionUser }) => {
                                     >
                                         Edit
                                     </button>
+                                    <button
+                                        className="red"
+                                        id="edit-comment"
+                                        onClick={e => {
+                                            e.preventDefault();
+                                            dispatch(deleteReview(review.id))
+                                        }}
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             ) : null}
                         </div>
