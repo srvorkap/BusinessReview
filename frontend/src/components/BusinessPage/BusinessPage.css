@@ -31,8 +31,6 @@
     transform: translate(-50%, -50%);
 }
 
-
-
 /* #clip {
     position: absolute;
     clip: rect(20px, 200px, 30px, );
@@ -91,7 +89,7 @@
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#edit-comment {
+#edit-review {
     border: none;
     padding: 5px;
     cursor: pointer;
@@ -113,4 +111,12 @@
 
 #business-page-stars-container {
     display: flex;
+}
+
+#remove-review {
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    align-self: end;
+    margin-left: 10px;
 }

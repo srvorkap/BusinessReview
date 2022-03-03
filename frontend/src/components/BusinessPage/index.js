@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink, useParams, useHistory, Redirect } from "react-router-dom";
+import { useParams, useHistory, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
 import { getBusinesses } from "../../store/business";
@@ -199,7 +199,7 @@ const BusinessPage = ({ sessionUser }) => {
                                 <div id='gospode'>
                                     <button
                                         className="red"
-                                        id="edit-comment"
+                                        id="edit-review"
                                         onClick={e => {
                                             e.preventDefault();
                                             history.push(
@@ -207,17 +207,17 @@ const BusinessPage = ({ sessionUser }) => {
                                             );
                                         }}
                                     >
-                                        Edit
+                                        Edit review
                                     </button>
                                     <button
                                         className="red"
-                                        id="edit-comment"
+                                        id="remove-review"
                                         onClick={e => {
                                             e.preventDefault();
                                             dispatch(deleteReview(review.id))
                                         }}
                                     >
-                                        Delete
+                                        Remove review
                                     </button>
                                 </div>
                             ) : null}
