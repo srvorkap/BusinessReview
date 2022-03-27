@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import "./ProfileButton.css";
-import logoutImage from '../../images/logout-button.png'
+import logoutImage from "../../images/logout-button.png";
 
 function ProfileButton({ user }) {
     const dispatch = useDispatch();
@@ -34,14 +34,10 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            {/* <NavLink to='/notes' className="navbar-links">Notes</NavLink> */}
             <div id="srki">
                 <div className="margin-right">
                     <button onClick={openMenu} id="profile-icon-button">
-                        {/* <div id="profile-icon-image"> */}
-                            {/* <i className="fas fa-user-circle" /> */}
-                            <img src={logoutImage} id='profile-icon-image' />
-                        {/* </div> */}
+                        <img src={logoutImage} id="profile-icon-image" />
                     </button>
                 </div>
                 <div>

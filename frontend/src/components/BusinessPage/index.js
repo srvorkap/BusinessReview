@@ -73,11 +73,6 @@ const BusinessPage = ({ sessionUser }) => {
         history.push(`/businesses/${businessId}/reviews/new`);
     };
 
-    // const onEditReview = e => {
-    //     e.preventDefault()
-    //     history.push(`/businesses/${businessId}/reviews/${review.id}/edit`)
-    // }
-
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);

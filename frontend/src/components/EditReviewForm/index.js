@@ -23,12 +23,7 @@ const EditReviewForm = ({ sessionUser }) => {
     const currentReview = reviews?.find(
         review => review?.id === reviewIdNumerical
     );
-    const {
-        rating,
-        content,
-        // userId,
-        // businessId
-    } = currentReview;
+    const { rating, content } = currentReview;
 
     const [editedRating, setEditedRating] = useState(rating);
     const [editedContent, setEditedContent] = useState(content);
@@ -47,7 +42,7 @@ const EditReviewForm = ({ sessionUser }) => {
         };
         const data = await dispatch(patchReview(editedReview));
         if (data && data.errors) setErrors(data.errors);
-        setEditedContent(content)
+        setEditedContent(content);
         if (!data.errors) {
             history.push(`/businesses/${businessId}`);
         }
@@ -62,7 +57,7 @@ const EditReviewForm = ({ sessionUser }) => {
         <div id="edit-review-container">
             <div id="inner-edit-review-container">
                 <h1 id="business-title">{currentBusiness.name}</h1>
-                <form onSubmit={onSubmit} id='gospode-dva'>
+                <form onSubmit={onSubmit} id="gospode-dva">
                     <div id="bozeee">
                         <ul className="errors">
                             {errors?.map(error => (

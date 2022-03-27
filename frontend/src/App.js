@@ -13,7 +13,7 @@ import EditBusinessForm from "./components/EditBusinessForm";
 import CreateReviewForm from "./components/CreateReviewForm";
 import EditReviewForm from "./components/EditReviewForm";
 import ErrorPage from "./components/ErrorPage";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import { getBusinesses } from "./store/business";
 import { getReviews } from "./store/review";
 
@@ -23,13 +23,13 @@ function App() {
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
         // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
-        const getReady = async() => {
-            await dispatch(sessionActions.restoreUser())
+        const getReady = async () => {
+            await dispatch(sessionActions.restoreUser());
             // await dispatch(getBusinesses())
             // await dispatch(getReviews())
-            setIsLoaded(true)
-        }
-        getReady()
+            setIsLoaded(true);
+        };
+        getReady();
     }, [dispatch]);
 
     return (
@@ -49,13 +49,13 @@ function App() {
                                 <SignupFormPage />
                             </Route>
                             <Route path="/businesses/new">
-                                <CreateBusinessForm sessionUser={sessionUser}/>
+                                <CreateBusinessForm sessionUser={sessionUser} />
                             </Route>
                             <Route path="/businesses/:businessId/edit" exact>
                                 <EditBusinessForm sessionUser={sessionUser} />
                             </Route>
                             <Route path="/businesses/:businessId" exact>
-                                <BusinessPage sessionUser={sessionUser}/>
+                                <BusinessPage sessionUser={sessionUser} />
                             </Route>
                             <Route path="/businesses" exact>
                                 <BusinessesPage sessionUser={sessionUser} />
@@ -63,7 +63,7 @@ function App() {
                             <Route path="/businesses/:businessId/reviews/new">
                                 <CreateReviewForm sessionUser={sessionUser} />
                             </Route>
-                            <Route path='/businesses/:businessId/reviews/:reviewId/edit'>
+                            <Route path="/businesses/:businessId/reviews/:reviewId/edit">
                                 <EditReviewForm sessionUser={sessionUser} />
                             </Route>
                             <Route>

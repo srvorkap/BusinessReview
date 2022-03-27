@@ -105,7 +105,6 @@ router.patch(
             zipCode,
             phone,
             hours,
-            // userId,
         } = req.body;
 
         const validatorErrors = validationResult(req)
@@ -122,7 +121,6 @@ router.patch(
                 zipCode,
                 phone,
                 hours,
-                // userId,
             });
             res.json(business);
         } else {
@@ -148,11 +146,6 @@ router.delete(
         reviews.forEach(async (review) => {
             await review.destroy();
         })
-        // await Review.destroy({
-        //     where: {
-        //         id  // Destorys all the pets where the petType is 1
-        //     }
-        // });
         await business.destroy()
         res.json({ id });
     })
