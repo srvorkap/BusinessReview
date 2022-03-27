@@ -16,6 +16,7 @@ import ErrorPage from "./components/ErrorPage";
 import { useSelector } from "react-redux";
 import { getBusinesses } from "./store/business";
 import { getReviews } from "./store/review";
+import Rating from "./components/Rating";
 
 function App() {
     const sessionUser = useSelector(state => state?.session?.user);
@@ -65,6 +66,9 @@ function App() {
                             </Route>
                             <Route path="/businesses/:businessId/reviews/:reviewId/edit">
                                 <EditReviewForm sessionUser={sessionUser} />
+                            </Route>
+                            <Route path='/rating'>
+                                <Rating />
                             </Route>
                             <Route>
                                 <ErrorPage sessionUser={sessionUser} />

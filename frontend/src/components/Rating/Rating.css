@@ -1,0 +1,26 @@
+#rating-container {
+    position: relative;
+}
+.div-around-radio-button {
+    height: 36px;
+    width: 36px;
+}
+
+#div-radio-container {
+    display: flex;
+    width: 204px;
+    justify-content: space-between;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.rating-radio-buttons {
+    display: none;
+}
+
+#srki {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

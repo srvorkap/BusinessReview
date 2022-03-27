@@ -31,6 +31,8 @@ import largeFour from '../src/images/stars/regular/regular_4@2x.png' // large
 import largeFourAndHalf from '../src/images/stars/regular/regular_4_half@2x.png' // large
 import largeFive from '../src/images/stars/regular/regular_5@2x.png' // large
 
+export { largeZero, largeOne, largeTwo, largeThree, largeFour, largeFive }
+
 export const smallStars = (rating) => {
     let image;
     if (rating === 0) image = smallZero
