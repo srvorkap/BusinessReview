@@ -13,76 +13,72 @@ const BusinessesPage = ({ sessionUser }) => {
     const reviews = Object?.values(reviewsObject);
     // const filtered = reviews?.filter(review => review.businessId === businesses.id)
 
-    const history = useHistory()
+    const history = useHistory();
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
 
     const onClick = e => {
-        e.preventDefault()
-        history.push('/businesses/new')
-    }
+        e.preventDefault();
+        history.push("/businesses/new");
+    };
     if (!sessionUser) return <Redirect to="/" />;
     return (
         <>
-            {/* <NavLink to="/businesses/new" className="no-underscore" id="new-business">
+            <button className="red buttons" id="new-business" onClick={onClick}>
                 Add New Business
-            </NavLink> */}
-            <button className="red buttons" id="new-business" onClick={onClick}>Add New Business</button>
+            </button>
             <div id="big-business">
                 {businesses?.map(business => {
                     return (
-                        // <div
-                        //     key={business?.id}
-                        //     className="single-business"
-                        // >
-                            <NavLink to={`/businesses/${business?.id}`} key={business?.id} className='single-business'>
-                                <div className="inner-single-business">
-                                    <div id="image-container">
+                        <NavLink
+                            to={`/businesses/${business?.id}`}
+                            key={business?.id}
+                            className="single-business"
+                        >
+                            <div className="inner-single-business">
+                                <div id="image-container">
+                                    <img
+                                        src={business?.imageURL}
+                                        className="single-business-image"
+                                    />
+                                </div>
+                                <div id="details-container">
+                                    <div>{business?.name}</div>
+                                    <div className="stars-container">
                                         <img
-                                            src={business?.imageURL}
-                                            className="single-business-image"
+                                            src={mediumStars(
+                                                business?.Reviews?.length !== 0
+                                                    ? business?.Reviews?.map(
+                                                          review =>
+                                                              review?.rating
+                                                      )?.reduce(
+                                                          (prev, current) =>
+                                                              prev + current,
+                                                          0
+                                                      ) /
+                                                          business?.Reviews
+                                                              ?.length
+                                                    : 0
+                                            )}
                                         />
+                                        <p id="review">
+                                            {business?.Reviews?.length === 0
+                                                ? null
+                                                : business?.Reviews?.length ===
+                                                  1
+                                                ? "1 review"
+                                                : `${business?.Reviews?.length} reviews`}
+                                        </p>
                                     </div>
-                                    <div id="details-container">
-                                        <div>{business?.name}</div>
-                                        <div className="stars-container">
-                                            <img
-                                                src={mediumStars(
-                                                    business?.Reviews
-                                                        ?.length !== 0
-                                                        ? business?.Reviews?.map(
-                                                              review =>
-                                                                  review?.rating
-                                                          )?.reduce(
-                                                              (prev, current) =>
-                                                                  prev +
-                                                                  current,
-                                                              0
-                                                          ) /
-                                                              business?.Reviews
-                                                                  ?.length
-                                                        : 0
-                                                )}
-                                            />
-                                            <p id="review">
-                                                {business?.Reviews?.length === 0
-                                                    ? null
-                                                    : business?.Reviews
-                                                          ?.length === 1
-                                                    ? "1 review"
-                                                    : `${business?.Reviews?.length} reviews`}
-                                            </p>
-                                        </div>
-                                        <div>{business?.description}</div>
-                                        <div>
-                                            {business?.city}, {business?.state}
-                                        </div>
+                                    <div>{business?.description}</div>
+                                    <div>
+                                        {business?.city}, {business?.state}
                                     </div>
                                 </div>
-                            </NavLink>
-                        // </div>
+                            </div>
+                        </NavLink>
                     );
                 })}
             </div>
