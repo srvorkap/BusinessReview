@@ -17,7 +17,10 @@ function Navigation({ isLoaded }) {
                     </NavLink>
                 </div>
                 <div>
-                    <ProfileButton user={sessionUser} className="margin-right"/>
+                    <ProfileButton
+                        user={sessionUser}
+                        className="margin-right"
+                    />
                 </div>
             </>
         );
@@ -45,7 +48,6 @@ function Navigation({ isLoaded }) {
 
     return (
         <div id="navbar">
-            {/* <div id="navbar-two"> */}
             <div className="margin-right">
                 <a href="https://github.com/srvorkap" target="_blank">
                     <span id="github-icon">
@@ -64,7 +66,6 @@ function Navigation({ isLoaded }) {
                 </a>
             </div>
             <div id="navbar-conditional">{isLoaded && sessionLinks}</div>
-            {/* </div> */}
         </div>
     );
 }

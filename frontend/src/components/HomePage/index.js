@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
-import homePageImage from "../../images/homePage.jpeg";
 import backgroundImage from "../../images/homePageTwo.jpeg";
-import backgroundImageThree from "../../images/homePageThree.jpeg";
 import Navigation from "../Navigation";
 import yelpBurst from "../../images/yelp_burst.png";
 import "./HomePage.css";
@@ -12,8 +10,6 @@ import "./HomePage.css";
 const HomePage = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
-    const [credential, setCredential] = useState("");
-    const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
     const [isLoaded, setIsLoaded] = useState(false);
@@ -52,16 +48,34 @@ const HomePage = () => {
                         </div>
                     </div>
                 )}
-                <div id='login-signup-demo'>
+                <div id="login-signup-demo">
                     <div>
-                        <p>Review your favorite businesses and share your experiences with our community</p>
+                        <p>
+                            Review your favorite businesses and share your
+                            experiences with our community
+                        </p>
                     </div>
-                    <div id='login-signup'>
-                        <div><NavLink to='/login' className='links margin-right'>Log In</NavLink></div>
-                        <div><NavLink to='/signup' className='links margin-right'>Sign Up</NavLink></div>
+                    <div id="login-signup">
+                        <div>
+                            <NavLink to="/login" className="links margin-right">
+                                Log In
+                            </NavLink>
+                        </div>
+                        <div>
+                            <NavLink
+                                to="/signup"
+                                className="links margin-right"
+                            >
+                                Sign Up
+                            </NavLink>
+                        </div>
                     </div>
                     <div>
-                        <button className="red buttons" id='demo-button' onClick={demoLogin}>
+                        <button
+                            className="red buttons"
+                            id="demo-button"
+                            onClick={demoLogin}
+                        >
                             Demo
                         </button>
                     </div>
