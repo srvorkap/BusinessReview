@@ -3,6 +3,7 @@ import { useHistory, Redirect, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { postReview } from "../../store/review";
 import { smallStars, mediumStars } from "../../helper";
+import Rating from "../Rating";
 import "./CreateReviewForm.css";
 
 const CreateReviewForm = ({ sessionUser }) => {
@@ -56,7 +57,8 @@ const CreateReviewForm = ({ sessionUser }) => {
                             ))}
                         </ul>
                         <div id="rating-content-container">
-                            <select
+                            <Rating />
+                            {/* <select
                                 name="rating"
                                 value={rating}
                                 onChange={e => setRating(e.target.value)}
@@ -67,7 +69,7 @@ const CreateReviewForm = ({ sessionUser }) => {
                                 <option value={3}>OK</option>
                                 <option value={4}>Good</option>
                                 <option value={5}>Great</option>
-                            </select>
+                            </select> */}
                             <div>
                                 <textarea
                                     id="content"
