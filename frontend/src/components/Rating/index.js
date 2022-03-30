@@ -13,7 +13,7 @@ const Rating = () => {
     const [rating, setRating] = useState(0);
     const [hover, setHover] = useState(0)
     const [isActive, setIsActive] = useState(false)
-    
+
     const ratingImageFunc = rating => {
         if (rating === 0) return largeZero;
         else if (rating === 1) return largeOne;
@@ -23,9 +23,11 @@ const Rating = () => {
         else return largeFive;
     };
 
+    console.log(rating)
+
     return (
         <div id="rating-container" onMouseLeave={() => setIsActive(false)}>
-            {isActive ? <img src={ratingImageFunc(hover)} id='srki'/> : <img src={ratingImageFunc(rating)} />}
+            {isActive ? <img src={ratingImageFunc(hover)} id='miki'/> : <img src={ratingImageFunc(rating)} />}
 
 
             <div id="div-radio-container">

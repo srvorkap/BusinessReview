@@ -16,7 +16,7 @@ const CreateReviewForm = ({ sessionUser }) => {
         business => business?.id === businessIdNumerical
     );
 
-    const [rating, setRating] = useState("");
+    const [rating, setRating] = useState(0);
     const [content, setContent] = useState("");
 
     const [errors, setErrors] = useState([]);
