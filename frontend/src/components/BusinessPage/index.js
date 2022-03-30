@@ -86,9 +86,6 @@ const BusinessPage = ({ sessionUser }) => {
     for (const review of currentBusinessReviews) {
         if (review?.userId === sessionUser?.id) {
             isReviewed = true;
-            console.log(review?.userId);
-            console.log(sessionUser?.id);
-            console.log(isReviewed);
         }
     }
 

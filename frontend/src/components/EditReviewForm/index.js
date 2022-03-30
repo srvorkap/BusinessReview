@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { patchReview } from "../../store/review";
 import { smallStars, mediumStars } from "../../helper";
 import "./EditReviewForm.css";
+import Rating from "../Rating";
 
 const EditReviewForm = ({ sessionUser }) => {
     const { businessId } = useParams();
@@ -24,6 +25,8 @@ const EditReviewForm = ({ sessionUser }) => {
         review => review?.id === reviewIdNumerical
     );
     const { rating, content } = currentReview;
+
+    const srkica = rating
 
     const [editedRating, setEditedRating] = useState(rating);
     const [editedContent, setEditedContent] = useState(content);
@@ -65,7 +68,8 @@ const EditReviewForm = ({ sessionUser }) => {
                             ))}
                         </ul>
                         <div id="rating-content-container">
-                            <label htmlFor="rating">Select your rating</label>
+                            <Rating changeRating={editedRating => setEditedRating(editedRating)} srkica={srkica}/>
+                            {/* <label htmlFor="rating">Select your rating</label>
                             <select
                                 name="rating"
                                 value={editedRating}
@@ -76,7 +80,7 @@ const EditReviewForm = ({ sessionUser }) => {
                                 <option value={3}>OK</option>
                                 <option value={4}>Good</option>
                                 <option value={5}>Great</option>
-                            </select>
+                            </select> */}
                             <div>
                                 <textarea
                                     id="content"

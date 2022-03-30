@@ -13,7 +13,6 @@ const EditBusinessForm = ({ sessionUser }) => {
     const currentBusiness = businesses?.find(
         business => business?.id === businessIdNumerical
     );
-    console.log(currentBusiness);
 
     const dispatch = useDispatch();
     const history = useHistory();

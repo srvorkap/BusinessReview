@@ -21,6 +21,8 @@ const CreateReviewForm = ({ sessionUser }) => {
 
     const [errors, setErrors] = useState([]);
 
+    const srkica = rating;
+
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -57,7 +59,7 @@ const CreateReviewForm = ({ sessionUser }) => {
                             ))}
                         </ul>
                         <div id="rating-content-container">
-                            <Rating />
+                            <Rating changeRating={rating => setRating(rating)} srkica={srkica}/>
                             {/* <select
                                 name="rating"
                                 value={rating}

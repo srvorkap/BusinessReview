@@ -37,7 +37,6 @@ const CreateBusinessForm = ({ sessionUser }) => {
         };
         const data = await dispatch(postBusiness(business));
         if (data && data.errors) setErrors(data.errors);
-        console.log(data);
         if (!data.errors) {
             const businessId = data.id.toString();
             history.push(`/businesses/${businessId}`);

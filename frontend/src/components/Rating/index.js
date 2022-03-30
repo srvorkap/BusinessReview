@@ -9,8 +9,10 @@ import {
 } from "../../helper";
 import "./Rating.css";
 
-const Rating = () => {
-    const [rating, setRating] = useState(0);
+const Rating = (props) => {
+    // console.log(props)
+    // console.log(props.srkica)
+    const [rating, setRating] = useState(props.srkica);
     const [hover, setHover] = useState(0)
     const [isActive, setIsActive] = useState(false)
 
@@ -22,8 +24,6 @@ const Rating = () => {
         else if (rating === 4) return largeFour;
         else return largeFive;
     };
-
-    console.log(rating)
 
     return (
         <div id="rating-container" onMouseLeave={() => setIsActive(false)}>
@@ -50,7 +50,7 @@ const Rating = () => {
                                 type="radio"
                                 name="rating"
                                 value={ratingValue}
-                                onClick={() => setRating(ratingValue)}
+                                onClick={() => props.changeRating(ratingValue)}
                                 className="rating-radio-buttons"
                             />
                         </label>
