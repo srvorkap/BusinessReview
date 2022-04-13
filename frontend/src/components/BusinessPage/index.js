@@ -182,9 +182,10 @@ const BusinessPage = ({ sessionUser }) => {
 
             <div id="reviews-container">
                 <div>
+                    <h4 id="reviews-header">Reviews for {currentBusiness?.name}</h4>
                     {currentBusinessReviews?.map(review => (
                         <div key={review.id} id="single-review">
-                            <h3>{review?.User?.username}</h3>
+                            <h4 id="review-user">{review?.User?.username}</h4>
                             <img src={smallStars(review.rating)} />
                             <p id="text">{review.content}</p>
                             {sessionUser.id === review.userId ? (

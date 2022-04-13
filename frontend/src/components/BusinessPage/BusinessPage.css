@@ -61,6 +61,7 @@
 }
 
 #reviews-container {
+    border-top: 1px solid black;
     width: 700px;
     height: 500px;
     display: flex;
@@ -101,7 +102,7 @@
 } */
 
 #business-page-image {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 
 #reviews-counter {
@@ -119,4 +120,14 @@
     cursor: pointer;
     align-self: end;
     margin-left: 10px;
+}
+
+#reviews-header {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 20px 0px;
+}
+
+#review-user {
+    font-weight: 600;
 }
