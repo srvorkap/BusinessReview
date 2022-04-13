@@ -33,8 +33,7 @@ function ProfileButton({ user }) {
     };
 
     return (
-        // <div id="profile-button-and-dropdown">
-        <>
+        <div id="profile-button-and-dropdown">
             <div id="bozepomozi">
                 <button onClick={openMenu} id="profile-icon-button">
                     <img src={logoutImage} id="profile-icon-image" />
@@ -53,8 +52,7 @@ function ProfileButton({ user }) {
                     </div>
                 )}
             </div>
-        </>
-        // </div>
+        </div>
     );
 }
 

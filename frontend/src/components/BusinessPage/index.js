@@ -141,6 +141,7 @@ const BusinessPage = ({ sessionUser }) => {
         conditionalRendering = (
             <>
                 <button
+                    id="write-review-button"
                     type="button"
                     className="red buttons"
                     onClick={onReview}
@@ -165,7 +166,7 @@ const BusinessPage = ({ sessionUser }) => {
                     </div>
                     <div className="stars-container" id="business-page-stars-container">
                         <img src={largeStarsImage} />
-                        <p id="reviews-counter">{reviewsCountRender}</p>
+                        <p id="reviews-count-counter">{reviewsCountRender}</p>
                     </div>
                     <div>
                         <div>{currentBusiness?.description}</div>

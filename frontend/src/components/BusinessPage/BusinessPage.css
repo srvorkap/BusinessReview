@@ -31,13 +31,6 @@
     transform: translate(-50%, -50%);
 }
 
-/* #clip {
-    position: absolute;
-    clip: rect(20px, 200px, 30px, );
-    clip-path: stroke-box(30px 20px 2px 55px);
-    clip: shape(top, right, bottom, left); NB 'rect' is the only available option
-} */
-
 #comment-user-name {
     font-weight: bold;
 }
@@ -105,7 +98,7 @@
     /* margin-bottom: 20px; */
 }
 
-#reviews-counter {
+#reviews-count-counter {
     margin-left: 10px;
     align-self: center;
 }
@@ -125,7 +118,7 @@
 #reviews-header {
     font-size: 20px;
     font-weight: 700;
-    margin: 20px 0px;
+    margin: 40px 0px;
 }
 
 #review-user {
@@ -137,5 +130,14 @@
     color: red;
     font-size: 14px;
     height: 14px;
-    
+
+}
+
+#write-review-button {
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+#reviews-container {
+    margin-top: 20px;
 }
