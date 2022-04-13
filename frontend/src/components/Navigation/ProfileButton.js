@@ -33,26 +33,28 @@ function ProfileButton({ user }) {
     };
 
     return (
-            <div id="profile-button-and-dropdown">
-                <div className="margin-right">
-                    <button onClick={openMenu} id="profile-icon-button">
-                        <img src={logoutImage} id="profile-icon-image" />
-                    </button>
-                </div>
-                <div>
-                    {showMenu && (
-                        <div id="profile-dropdown">
-                            <div>{user.username}</div>
-                            <div>{user.email}</div>
-                            <div>
-                                <button onClick={logout} id="logout-button">
-                                    Log Out
-                                </button>
-                            </div>
-                        </div>
-                    )}
-                </div>
+        // <div id="profile-button-and-dropdown">
+        <>
+            <div id="bozepomozi">
+                <button onClick={openMenu} id="profile-icon-button">
+                    <img src={logoutImage} id="profile-icon-image" />
+                </button>
             </div>
+            <div>
+                {showMenu && (
+                    <div id="profile-dropdown">
+                        <div>{user.username}</div>
+                        <div>{user.email}</div>
+                        <div>
+                            <button onClick={logout} id="logout-button">
+                                Log Out
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </>
+        // </div>
     );
 }
 

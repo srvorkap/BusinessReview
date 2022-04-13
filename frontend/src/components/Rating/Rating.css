@@ -1,7 +1,9 @@
 #rating-container {
     position: relative;
     height: 5vh;
+    /* display: flex; */
 }
+
 .div-around-radio-button {
     height: 36px;
     width: 36px;
@@ -24,4 +26,10 @@
     position: absolute;
     top: 0px;
     left: 0px;
+}
+
+#rating-text {
+   position: absolute;
+   top: 8px;
+   left: 220px;
 }

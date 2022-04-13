@@ -5,7 +5,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import backgroundImage from "../../images/homePageTwo.jpeg";
 import Navigation from "../Navigation";
 import yelpBurst from "../../images/yelp_burst.png";
-import "./HomePage.css";
+import "./LandingPage.css";
 
 const HomePage = () => {
     const dispatch = useDispatch();

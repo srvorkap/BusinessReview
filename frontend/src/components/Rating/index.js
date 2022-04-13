@@ -23,6 +23,15 @@ const Rating = (props) => {
         else return largeFive;
     };
 
+    const ratingTextFunc = rating => {
+        if (rating === 0) return null
+        else if (rating === 1) return 'Not good';
+        else if (rating === 2) return `Could've been better`;
+        else if (rating === 3) return 'OK';
+        else if (rating === 4) return 'Good';
+        else return 'Great';
+    }
+
     return (
         <div id="rating-container" onMouseLeave={() => setIsActive(false)}>
             {isActive ? <img src={ratingImageFunc(hover)} id='miki'/> : <img src={ratingImageFunc(rating)} />}
@@ -55,6 +64,7 @@ const Rating = (props) => {
                     );
                 })}
             </div>
+            <div id="rating-text">{isActive ? ratingTextFunc(hover) : ratingTextFunc(rating)}</div>
         </div>
     );
 };

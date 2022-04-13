@@ -5,7 +5,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import HomePage from "./components/HomePage";
+import LandingPage from "./components/LandingPage";
 import BusinessesPage from "./components/BusinessesPage";
 import BusinessPage from "./components/BusinessPage";
 import CreateBusinessForm from "./components/CreateBusinessForm";
@@ -37,7 +37,7 @@ function App() {
         <>
             <Switch>
                 <Route path="/" exact>
-                    <HomePage />
+                    <LandingPage />
                 </Route>
                 <Route path="/">
                     <Navigation isLoaded={isLoaded} />

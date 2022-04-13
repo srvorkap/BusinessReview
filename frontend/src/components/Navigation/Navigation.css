@@ -1,4 +1,5 @@
 #navbar {
+    position: relative;
     padding: 20px;
     height: 100px;
     background-color: rgb(211, 35, 35);
@@ -9,7 +10,8 @@
 }
 
 #navbar-center {
-    width: 80%;
+    width: 100%;
+    /* position: relative; */
     align-self: center;
     justify-self: center;
     display: flex;
@@ -19,14 +21,23 @@
 
 }
 
-#navbar-right {
-    width: 20%;
-    align-self: center;
-    justify-self: center;
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-    /* background-color: pink; */
+/* #navbar-right {
+
+    position: absolute;
+    top: 10px;
+    right: 200px;
+} */
+
+#bozepomozi {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+}
+
+#profile-dropdown {
+    position: absolute;
+    top: 20px;
+    right: 30px;
 }
 
 .links {
