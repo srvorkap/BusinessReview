@@ -44,7 +44,7 @@
 }
 
 #new-business {
-    position: absolute;
+    position: fixed;
     top: 200px;
     right: 5%;
 }

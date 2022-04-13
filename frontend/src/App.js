@@ -14,8 +14,6 @@ import CreateReviewForm from "./components/CreateReviewForm";
 import EditReviewForm from "./components/EditReviewForm";
 import ErrorPage from "./components/ErrorPage";
 import { useSelector } from "react-redux";
-import { getBusinesses } from "./store/business";
-import { getReviews } from "./store/review";
 import Rating from "./components/Rating";
 
 function App() {
@@ -23,11 +21,8 @@ function App() {
     const dispatch = useDispatch();
     const [isLoaded, setIsLoaded] = useState(false);
     useEffect(() => {
-        // dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
         const getReady = async () => {
             await dispatch(sessionActions.restoreUser());
-            // await dispatch(getBusinesses())
-            // await dispatch(getReviews())
             setIsLoaded(true);
         };
         getReady();

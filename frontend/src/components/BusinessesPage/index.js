@@ -1,17 +1,15 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import "./BusinessesPage.css";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { getBusinesses } from "../../store/business";
 import { mediumStars } from "../../helper";
+import "./BusinessesPage.css";
 
 const BusinessesPage = ({ sessionUser }) => {
     const businessesObject = useSelector(store => store?.business?.entries);
     const businesses = Object?.values(businessesObject);
-    // const sessionUser = useSelector(state => state?.session?.user);
     const reviewsObject = useSelector(store => store?.review?.entries);
     const reviews = Object?.values(reviewsObject);
-    // const filtered = reviews?.filter(review => review.businessId === businesses.id)
 
     const history = useHistory();
     const dispatch = useDispatch();

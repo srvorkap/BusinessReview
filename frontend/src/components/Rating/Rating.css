@@ -1,7 +1,6 @@
 #rating-container {
     position: relative;
     height: 5vh;
-    /* display: flex; */
 }
 
 .div-around-radio-button {
@@ -22,14 +21,8 @@
     display: none;
 }
 
-#miki {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-}
-
 #rating-text {
    position: absolute;
-   top: 8px;
+   top: 9px;
    left: 220px;
 }

@@ -34,7 +34,7 @@ const Rating = (props) => {
 
     return (
         <div id="rating-container" onMouseLeave={() => setIsActive(false)}>
-            {isActive ? <img src={ratingImageFunc(hover)} id='miki'/> : <img src={ratingImageFunc(rating)} />}
+            {isActive ? <img src={ratingImageFunc(hover)}/> : <img src={ratingImageFunc(rating)} />}
 
 
             <div id="div-radio-container">
