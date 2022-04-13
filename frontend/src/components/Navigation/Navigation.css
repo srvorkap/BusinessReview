@@ -3,17 +3,32 @@
     height: 100px;
     background-color: rgb(211, 35, 35);
     display: flex;
-    align-items: center;
+    width: 100vw;
+    /* width: 100%; */
+    /* align-items: center; */
 }
-#navbar-two {
-    padding: 20px;
-    height: 110px;
-    background-color: rgb(211, 35, 35);
-}
-#navbar-conditional {
+
+#navbar-center {
+    width: 80%;
+    align-self: center;
+    justify-self: center;
     display: flex;
-    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    /* background-color: purple; */
+
 }
+
+#navbar-right {
+    width: 20%;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    /* background-color: pink; */
+}
+
 .links {
     color: red;
     /* margin: 50px; */
@@ -24,8 +39,7 @@
 }
 
 .margin-right {
-    margin: 0px 75px;
-    /* margin-right: 150px; */
+    margin: 0px 40px;
 }
 
 .links:visited { color: white; }

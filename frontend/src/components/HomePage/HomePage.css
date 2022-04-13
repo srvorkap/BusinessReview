@@ -31,11 +31,6 @@
     color:grey
 }
 
-.margin-right {
-    margin: 0px 75px;
-    /* margin-right: 150px; */
-}
-
 .links:visited { color: white; }
 .links:hover { color: none; }
 

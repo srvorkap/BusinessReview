@@ -1,3 +1,7 @@
+#profile-button-and-dropdown {
+  display: flex;
+  align-items: center;
+}
 
 
 #github-icon {
@@ -50,10 +54,4 @@
 
   #logout-button:hover {
     color: none;
-  }
-
-
-  #srki {
-    display: flex;
-    align-items: center;
   }

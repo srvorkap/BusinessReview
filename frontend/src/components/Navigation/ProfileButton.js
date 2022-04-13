@@ -33,8 +33,7 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <>
-            <div id="srki">
+            <div id="profile-button-and-dropdown">
                 <div className="margin-right">
                     <button onClick={openMenu} id="profile-icon-button">
                         <img src={logoutImage} id="profile-icon-image" />
@@ -54,7 +53,6 @@ function ProfileButton({ user }) {
                     )}
                 </div>
             </div>
-        </>
     );
 }
 
