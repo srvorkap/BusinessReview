@@ -145,6 +145,7 @@ const BusinessPage = ({ sessionUser }) => {
                     className="red buttons"
                     onClick={onReview}
                 >
+                    <i class="far fa-star"></i>
                     Write a Review
                 </button>
             </>
