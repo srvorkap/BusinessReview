@@ -44,18 +44,44 @@
     color: red;
     /* margin: 50px; */
     /* padding: 5%; */
-    text-decoration: none;
+    /* text-decoration: none; */
     color:grey;
     white-space: nowrap;
 }
 
 .margin-right {
     margin: 0px 40px;
+    padding: 9px 12px 8px;
+    border-bottom: 2px solid transparent;
 }
 
-.links:visited { color: white; }
-.links:hover { color: none; }
+.margin-right:hover {
+    border-bottom: 2px solid white;
+}
+
+.links:visited { color: blue; }
+.links:hover { color: pink; }
 
 #business-navlink {
     color: white
 }
+
+#github-icon {
+    color: white;
+  }
+
+  /* #github-icon:visited {
+    color: gray;
+  } */
+  #github-icon:hover {
+    color: none
+  }
+  #linkedin-icon {
+    /* margin-left: 100px; */
+    color: white;
+    /* padding: 9px 12px 8px; */
+  }
+
+  #linkedin-icon:hover {
+    cursor: pointer;
+  }

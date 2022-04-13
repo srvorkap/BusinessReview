@@ -23,16 +23,14 @@
     /* justify-self: center; */
 }
 
-.links {
+/* .links {
     color: red;
-    /* margin: 50px; */
-    /* padding: 5%; */
     text-decoration: none;
     color:grey
-}
+} */
 
-.links:visited { color: white; }
-.links:hover { color: none; }
+/* .links:visited { color: white; }
+.links:hover { color: none; } */
 
 #demo-button {
     margin: 0px;

@@ -4,24 +4,7 @@
 }
 
 
-#github-icon {
-    color: white;
-  }
 
-  /* #github-icon:visited {
-    color: gray;
-  } */
-  #github-icon:hover {
-    color: none
-  }
-  #linkedin-icon {
-    /* margin-left: 100px; */
-    color: white;
-  }
-
-  #linkedin-icon:hover {
-    cursor: pointer;
-  }
 
   #profile-icon-image {
     border-radius: 50%;
