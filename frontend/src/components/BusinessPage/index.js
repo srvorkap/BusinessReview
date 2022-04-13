@@ -154,7 +154,7 @@ const BusinessPage = ({ sessionUser }) => {
         <div id="business-page">
             <div
                 style={{
-                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 20%, rgba(0,0,0,1)), url(${currentBusiness?.imageURL})`,
+                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,1)), url(${currentBusiness?.imageURL})`,
                 }}
                 id="business-page-image"
             >
