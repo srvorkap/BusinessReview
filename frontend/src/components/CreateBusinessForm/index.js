@@ -47,7 +47,7 @@ const CreateBusinessForm = ({ sessionUser }) => {
         e.preventDefault();
         history.goBack();
     };
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div className="signup-login-page">
             <div className="signup-login-form" id="create-business-form">

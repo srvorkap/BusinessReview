@@ -12,7 +12,6 @@ function LoginFormPage() {
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState([]);
 
-    // if logged in redirect to (it used to be '/')
     if (sessionUser) return <Redirect to="/businesses" />;
 
     const handleSubmit = e => {
@@ -24,6 +23,20 @@ function LoginFormPage() {
                 if (data && data.errors) setErrors(data.errors);
             }
         );
+    };
+
+    const demoLogin = e => {
+        e.preventDefault();
+        setErrors([]);
+        return dispatch(
+            sessionActions.login({
+                credential: "demo@user.io",
+                password: "password",
+            })
+        ).catch(async res => {
+            const data = await res.json();
+            if (data && data.errors) setErrors(data.errors);
+        });
     };
 
     return (
@@ -59,6 +72,12 @@ function LoginFormPage() {
                         className="red buttons signup-login-buttons"
                     />
                 </form>
+                <input
+                    onClick={demoLogin}
+                    type="submit"
+                    value="Demo"
+                    className="red buttons signup-login-buttons"
+                />
                 <div className="signup-login">
                     <p className="grey">New to BusinessReview?</p>
                     <NavLink to="/signup" id="signup-link">

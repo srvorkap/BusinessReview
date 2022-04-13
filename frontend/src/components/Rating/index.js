@@ -10,8 +10,6 @@ import {
 import "./Rating.css";
 
 const Rating = (props) => {
-    // console.log(props)
-    // console.log(props.srkica)
     const [rating, setRating] = useState(props.srkica);
     const [hover, setHover] = useState(0)
     const [isActive, setIsActive] = useState(false)

@@ -23,7 +23,7 @@ const BusinessesPage = ({ sessionUser }) => {
         e.preventDefault();
         history.push("/businesses/new");
     };
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <>
             <button className="red buttons" id="new-business" onClick={onClick}>

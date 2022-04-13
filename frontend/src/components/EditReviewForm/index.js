@@ -55,7 +55,7 @@ const EditReviewForm = ({ sessionUser }) => {
         e.preventDefault();
         history.goBack();
     };
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div id="edit-review-container">
             <div id="inner-edit-review-container">

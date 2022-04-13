@@ -77,7 +77,7 @@ const EditBusinessForm = ({ sessionUser }) => {
         e.preventDefault();
         history.push(`/businesses/${businessId}`);
     };
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div className="signup-login-page">
             <div className="signup-login-form" id="edit-business-form">

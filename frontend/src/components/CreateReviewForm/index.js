@@ -36,7 +36,6 @@ const CreateReviewForm = ({ sessionUser }) => {
         };
         const data = await dispatch(postReview(review));
         if (data && data.errors) setErrors(data.errors);
-        console.log(data);
         if (!data.errors) {
             history.push(`/businesses/${businessId}`);
         }
@@ -46,7 +45,7 @@ const CreateReviewForm = ({ sessionUser }) => {
         e.preventDefault();
         history.goBack();
     };
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div id="create-review-container">
             <div id="inner-create-review-container">
@@ -60,18 +59,6 @@ const CreateReviewForm = ({ sessionUser }) => {
                         </ul>
                         <div id="rating-content-container">
                             <Rating changeRating={rating => setRating(rating)} srkica={srkica}/>
-                            {/* <select
-                                name="rating"
-                                value={rating}
-                                onChange={e => setRating(e.target.value)}
-                            >
-                                <option value="11">Select your rating</option>
-                                <option value={1}>Not good</option>
-                                <option value={2}>Could've been better</option>
-                                <option value={3}>OK</option>
-                                <option value={4}>Good</option>
-                                <option value={5}>Great</option>
-                            </select> */}
                             <div>
                                 <textarea
                                     id="content"

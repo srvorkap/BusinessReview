@@ -149,7 +149,7 @@ const BusinessPage = ({ sessionUser }) => {
                 </button>
             </>
         );
-    if (!sessionUser) return <Redirect to="/" />;
+    if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div id="business-page">
             <div
