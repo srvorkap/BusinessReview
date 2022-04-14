@@ -97,6 +97,7 @@ const BusinessPage = ({ sessionUser }) => {
                 <div>
                     <div className="note-buttons-container">
                         <button
+                            id="edit-business-button"
                             type="button"
                             className="red buttons"
                             onClick={onEdit}
@@ -104,6 +105,7 @@ const BusinessPage = ({ sessionUser }) => {
                             Edit
                         </button>
                         <button
+                            id="bbbb"
                             type="button"
                             className="red buttons"
                             onClick={onDelete}

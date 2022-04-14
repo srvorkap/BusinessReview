@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import "./Navigation.css";
+import "./NavBar.css";
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -10,6 +10,11 @@ function Navigation({ isLoaded }) {
     return (
         <div id="navbar">
 
+
+            <div id="navbar-left">
+                <i class="fab fa-yelp" id="yelp-icon"></i>
+                <h1 id="business-review">BusinessReview</h1>
+            </div>
 
             <div id="navbar-center">
                 <div className="margin-right">
@@ -52,7 +57,7 @@ function Navigation({ isLoaded }) {
                 )}
             </div>
 
-            <div id="navbar-right">
+            <div id="navbar-right-profile-button">
                 {sessionUser ? (
                     <div>
                         <ProfileButton
@@ -61,7 +66,7 @@ function Navigation({ isLoaded }) {
                         />
                     </div>
                 ) : (
-                    <>
+                    <div id="navbar-right-login-signup">
                         <div>
                             <NavLink to="/login" className="links margin-right">
                                 Log In
@@ -69,13 +74,14 @@ function Navigation({ isLoaded }) {
                         </div>
                         <div>
                             <NavLink
+                                id="signup-button-navbar"
                                 to="/signup"
                                 className="links margin-right"
                             >
                                 Sign Up
                             </NavLink>
                         </div>
-                    </>
+                    </div>
                 )}
             </div>
 

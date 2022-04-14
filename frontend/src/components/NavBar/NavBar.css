@@ -1,42 +1,25 @@
 #navbar {
     position: relative;
-    padding: 20px;
-    height: 100px;
+    /* padding: 20px; */
+    height: 50px;
     background-color: rgb(211, 35, 35);
     display: flex;
-    width: 100vw;
-    /* width: 100%; */
-    /* align-items: center; */
+    align-items: center;
+    justify-content: space-between;
+    color: white;
 }
 
 #navbar-center {
-    width: 100%;
-    /* position: relative; */
-    align-self: center;
-    justify-self: center;
+    position: relative;
     display: flex;
-    justify-items: center;
-    justify-content: center;
-    /* background-color: purple; */
-
-}
-
-/* #navbar-right {
-
-    position: absolute;
-    top: 10px;
-    right: 200px;
-} */
-
-#bozepomozi {
-    position: absolute;
-    top: 10px;
-    right: 200px;
 }
 
 #profile-dropdown {
+    min-width: 200px;
+    height: 100px;
+    background-color: red;
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 30px;
 }
 
@@ -84,4 +67,35 @@
 
   #linkedin-icon:hover {
     cursor: pointer;
+  }
+
+  #navbar-left {
+      display: flex;
+      justify-self: center;
+      align-self: center;
+  }
+
+  #yelp-icon {
+      justify-self: center;
+      align-self: center;
+      margin-right: 5px;
+  }
+
+
+
+  #business-review {
+      font-size: 1.5em;
+  }
+
+  #navbar-right-login-signup {
+      display: flex;
+  }
+
+  #signup-button-navbar {
+      border: 2px solid white;
+  }
+
+  #signup-button-navbar:hover {
+      background-color: white;
+      color: black;
   }

@@ -3,7 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import backgroundImage from "../../images/homePageTwo.jpeg";
-import Navigation from "../Navigation";
+import Navigation from "../NavBar";
 import yelpBurst from "../../images/yelp_burst.png";
 import "./LandingPage.css";
 
@@ -44,7 +44,7 @@ const HomePage = () => {
                             <h1>Business Review</h1>
                         </div>
                         <div>
-                            <img src={yelpBurst} />
+                            <img src={yelpBurst} id='logo' />
                         </div>
                     </div>
                 )}
