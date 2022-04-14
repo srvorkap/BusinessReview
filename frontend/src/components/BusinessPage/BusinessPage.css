@@ -90,10 +90,6 @@
     align-self: end;
 }
 
-/* #id gospode {
-    display: flex;
-} */
-
 #business-page-image {
     /* margin-bottom: 20px; */
 }
@@ -130,7 +126,6 @@
     color: red;
     font-size: 14px;
     height: 14px;
-
 }
 
 #write-review-button {
@@ -142,10 +137,16 @@
     margin-top: 20px;
 }
 
-/* #edit-business-button {
-    margin-bottom: 0px;
-} */
-
 #bbbb {
     margin-bottom: 0px;
+}
+
+#go_back {
+    position: fixed;
+    top: 10%;
+    left: 5%;
+    color: rgb(211, 35, 35);
+    font-size: 32px;
+    padding: 10px 13px;
+    margin: 20px;
 }

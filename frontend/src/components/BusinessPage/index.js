@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useHistory, Redirect } from "react-router-dom";
+import { useParams, useHistory, Redirect, NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteBusiness } from "../../store/business";
 import { getBusinesses } from "../../store/business";
@@ -76,9 +76,14 @@ const BusinessPage = ({ sessionUser }) => {
     useEffect(() => {
         dispatch(getBusinesses());
     }, [dispatch]);
+    
     useEffect(() => {
         dispatch(getReviews());
     }, [dispatch]);
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     // first part of conditional rendering
 
@@ -156,6 +161,9 @@ const BusinessPage = ({ sessionUser }) => {
     if (!sessionUser) return <Redirect to="/login" />;
     return (
         <div id="business-page">
+            <NavLink to='/businesses'>
+                <i class="fas fa-arrow-alt-circle-left" id="go_back"></i>
+            </NavLink>
             <div
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,1)), url(${currentBusiness?.imageURL})`,
@@ -166,7 +174,10 @@ const BusinessPage = ({ sessionUser }) => {
                     <div>
                         <h1>{currentBusiness?.name}</h1>
                     </div>
-                    <div className="stars-container" id="business-page-stars-container">
+                    <div
+                        className="stars-container"
+                        id="business-page-stars-container"
+                    >
                         <img src={largeStarsImage} />
                         <p id="reviews-count-counter">{reviewsCountRender}</p>
                     </div>
@@ -186,14 +197,16 @@ const BusinessPage = ({ sessionUser }) => {
 
             <div id="reviews-container">
                 <div>
-                    <h4 id="reviews-header">Reviews for {currentBusiness?.name}</h4>
+                    <h4 id="reviews-header">
+                        Reviews for {currentBusiness?.name}
+                    </h4>
                     {currentBusinessReviews?.map(review => (
                         <div key={review.id} id="single-review">
                             <h4 id="review-user">{review?.User?.username}</h4>
                             <img src={smallStars(review.rating)} />
                             <p id="text">{review.content}</p>
                             {sessionUser.id === review.userId ? (
-                                <div id='gospode'>
+                                <div id="gospode">
                                     <button
                                         className="red"
                                         id="edit-review"
@@ -211,7 +224,7 @@ const BusinessPage = ({ sessionUser }) => {
                                         id="remove-review"
                                         onClick={e => {
                                             e.preventDefault();
-                                            dispatch(deleteReview(review.id))
+                                            dispatch(deleteReview(review.id));
                                         }}
                                     >
                                         Remove review

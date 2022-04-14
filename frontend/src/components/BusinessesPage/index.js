@@ -17,6 +17,10 @@ const BusinessesPage = ({ sessionUser }) => {
         dispatch(getBusinesses());
     }, [dispatch]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     const onClick = e => {
         e.preventDefault();
         history.push("/businesses/new");

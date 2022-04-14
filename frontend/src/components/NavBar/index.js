@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import "./NavBar.css";
@@ -7,12 +7,18 @@ import "./NavBar.css";
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
+    const history = useHistory();
+
+    const goBack = () => {
+        if (sessionUser) history.push("/businesses");
+    };
+
     return (
         <div id="navbar">
-            <NavLink to="/businesses" id="navbar-left">
+            <div onClick={goBack} id="navbar-left">
                 <i class="fab fa-yelp" id="yelp-icon"></i>
                 <h1 id="business-review">BusinessReview</h1>
-            </NavLink>
+            </div>
 
             <div id="navbar-center">
                 <div className="margin-right">
@@ -46,15 +52,16 @@ function Navigation({ isLoaded }) {
                         </span>
                     </a>
                 </div>
-                {sessionUser && (
+                {/* {sessionUser && (
                     <div className="margin-right">
-                        <NavLink to="/businesses" id="business-navlink">
-                            Businesses
-                        </NavLink>
+                    <NavLink to="/businesses" id="business-navlink">
+                    Businesses
+                    </NavLink>
                     </div>
-                )}
+                )} */}
             </div>
 
+            {sessionUser && <div></div>}
             <div id="navbar-right-profile-button">
                 {sessionUser ? (
                     <div>
