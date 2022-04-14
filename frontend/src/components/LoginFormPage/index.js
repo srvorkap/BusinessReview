@@ -75,7 +75,7 @@ function LoginFormPage() {
                 <input
                     onClick={demoLogin}
                     type="submit"
-                    value="Demo"
+                    value="Demo User"
                     className="red buttons signup-login-buttons"
                 />
                 <div className="signup-login">

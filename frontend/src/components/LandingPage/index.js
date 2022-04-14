@@ -76,7 +76,7 @@ const HomePage = () => {
                             id="demo-button"
                             onClick={demoLogin}
                         >
-                            Demo
+                            Demo User
                         </button>
                     </div>
                 </div>
