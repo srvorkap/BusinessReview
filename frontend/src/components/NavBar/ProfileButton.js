@@ -33,7 +33,7 @@ function ProfileButton({ user }) {
     };
 
     return (
-        <div id="profile-button-and-dropdown">
+        <div id="profile-button-and-dropdown" className="margin-right">
             <div>
                 <button onClick={openMenu} id="profile-icon-button">
                     <img src={logoutImage} id="profile-icon-image" />

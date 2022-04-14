@@ -9,6 +9,10 @@
     color: white;
 }
 
+#navbar-left {
+    margin-left: 40px;
+}
+
 #navbar-center {
     position: relative;
     display: flex;
@@ -24,11 +28,11 @@
 }
 
 .links {
-    color: red;
+    /* color: red; */
     /* margin: 50px; */
     /* padding: 5%; */
     /* text-decoration: none; */
-    color:grey;
+    /* color:grey; */
     white-space: nowrap;
 }
 
@@ -42,20 +46,14 @@
     border-bottom: 2px solid white;
 }
 
-.links:visited { color: blue; }
-.links:hover { color: pink; }
-
 #business-navlink {
-    color: white
+    color: white;
 }
 
 #github-icon {
     color: white;
   }
 
-  /* #github-icon:visited {
-    color: gray;
-  } */
   #github-icon:hover {
     color: none
   }
@@ -93,9 +91,10 @@
 
   #signup-button-navbar {
       border: 2px solid white;
+      border-radius: 4px;
   }
 
   #signup-button-navbar:hover {
       background-color: white;
-      color: black;
+      color: #666;
   }
