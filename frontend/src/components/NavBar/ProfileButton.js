@@ -38,19 +38,19 @@ function ProfileButton({ user }) {
                 <button onClick={openMenu} id="profile-icon-button">
                     <img src={logoutImage} id="profile-icon-image" />
                 </button>
-            </div>
-            <div>
-                {showMenu && (
-                    <div id="profile-dropdown">
-                        <div>{user.username}</div>
-                        <div>{user.email}</div>
-                        <div>
-                            <button onClick={logout} id="logout-button">
-                                Log Out
-                            </button>
+                {/* <div> */}
+                    {showMenu && (
+                        <div id="profile-dropdown">
+                            <div id="profile-btn">{user.username}</div>
+                            {/* <div>{user.email}</div> */}
+                            <div id="logout-btn-container">
+                                <div onClick={logout} id="logout-button">
+                                    Log Out
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                {/* </div> */}
             </div>
         </div>
     );

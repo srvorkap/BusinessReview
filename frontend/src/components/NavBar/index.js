@@ -9,12 +9,10 @@ function Navigation({ isLoaded }) {
 
     return (
         <div id="navbar">
-
-
-            <div id="navbar-left">
+            <NavLink to="/businesses" id="navbar-left">
                 <i class="fab fa-yelp" id="yelp-icon"></i>
                 <h1 id="business-review">BusinessReview</h1>
-            </div>
+            </NavLink>
 
             <div id="navbar-center">
                 <div className="margin-right">
@@ -84,8 +82,6 @@ function Navigation({ isLoaded }) {
                     </div>
                 )}
             </div>
-
-
         </div>
     );
 }
