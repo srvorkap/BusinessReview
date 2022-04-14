@@ -41,7 +41,7 @@ function ProfileButton({ user }) {
                 {/* <div> */}
                     {showMenu && (
                         <div id="profile-dropdown">
-                            <div id="profile-btn">{user.username}</div>
+                            <div id="profile-btn">{user.username === 'Demo-lition' ? 'Demo User' : user.username}</div>
                             {/* <div>{user.email}</div> */}
                             <div id="logout-btn-container">
                                 <div onClick={logout} id="logout-button">
