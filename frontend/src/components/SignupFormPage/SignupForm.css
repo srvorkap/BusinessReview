@@ -5,3 +5,8 @@
 #login-link:hover {
     text-decoration: underline;
 }
+
+#signup-text {
+    color: rgb(211, 35, 35);
+    margin-bottom: 25px;
+}
