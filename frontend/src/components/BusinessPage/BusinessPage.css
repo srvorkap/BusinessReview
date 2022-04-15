@@ -129,8 +129,10 @@
 }
 
 #write-review-button {
-    margin-top: 20px;
     margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #reviews-container {
@@ -146,4 +148,9 @@
     font-size: 32px;
     border-radius: 50%;
     margin: 20px;
+}
+
+#star {
+    font-size: 20px;
+    padding-right: 10px;
 }
