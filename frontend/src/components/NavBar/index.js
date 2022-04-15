@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
                 <h1 id="business-review">BusinessReview</h1>
             </div>
 
-            {!sessionUser && <div></div>}
+            {/* {!sessionUser && <div></div>} */}
 
             <div id="navbar-center">
                 <div className="margin-right">
@@ -55,10 +55,7 @@ function Navigation({ isLoaded }) {
                     </a>
                 </div>
             </div>
-
-            {/* {sessionUser && <div></div>} */}
-            {/* {sessionUser && <div></div>} */}
-            <div id="navbar-right-profile-button">
+            <div id="navbar-right">
                 {sessionUser ? (
                     <div>
                         <ProfileButton
