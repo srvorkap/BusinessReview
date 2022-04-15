@@ -103,13 +103,15 @@ a {
 
 .signup-login-page {
     display: flex;
-    height: 80vh;
+    height: 85vh;
     width: 100vw;
     justify-content: center;
     align-items: center;
 }
 
 .signup-login-form {
+    box-sizing: content-box;
+    width: 332px;
     padding: 0px 15px;
     margin-right: 50px;
 }
@@ -134,5 +136,5 @@ a {
 
 .signup-login {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 }

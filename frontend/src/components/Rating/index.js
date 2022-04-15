@@ -42,7 +42,7 @@ const Rating = (props) => {
                     const ratingValue = index + 1;
 
                     return (
-                        <label>
+                        <label key={index}>
                             <div className="div-around-radio-button"
                             onMouseEnter={() => {
                                 setIsActive(true)

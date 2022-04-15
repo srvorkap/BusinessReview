@@ -79,7 +79,7 @@ function LoginFormPage() {
                     className="red buttons signup-login-buttons"
                 />
                 <div className="signup-login">
-                    <p className="grey">New to BusinessReview?</p>
+                    <p className="grey">New to BusinessReview?&nbsp;</p>
                     <NavLink to="/signup" id="signup-link">
                         Sign Up
                     </NavLink>

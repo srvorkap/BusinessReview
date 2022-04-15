@@ -38,19 +38,20 @@ function ProfileButton({ user }) {
                 <button onClick={openMenu} id="profile-icon-button">
                     <img src={logoutImage} id="profile-icon-image" />
                 </button>
-                {/* <div> */}
-                    {showMenu && (
-                        <div id="profile-dropdown">
-                            <div id="profile-btn">{user.username === 'Demo-lition' ? 'Demo User' : user.username}</div>
-                            {/* <div>{user.email}</div> */}
-                            <div id="logout-btn-container">
-                                <div onClick={logout} id="logout-button">
-                                    Log Out
-                                </div>
+                {showMenu && (
+                    <div id="profile-dropdown">
+                        <div id="profile-btn">
+                            {user.username === "Demo-lition"
+                                ? "Demo User"
+                                : user.username}
+                        </div>
+                        <div id="logout-btn-container">
+                            <div onClick={logout} id="logout-button">
+                                Log Out
                             </div>
                         </div>
-                    )}
-                {/* </div> */}
+                    </div>
+                )}
             </div>
         </div>
     );

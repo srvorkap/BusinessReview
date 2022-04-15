@@ -84,7 +84,7 @@ function SignupFormPage() {
                     />
                 </form>
                 <div className="signup-login">
-                    <p className="grey">Already on BusinessReview?</p>
+                    <p className="grey">Already on BusinessReview?&nbsp;</p>
                     <NavLink to="/login" id="login-link">
                         Log In
                     </NavLink>

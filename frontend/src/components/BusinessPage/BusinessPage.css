@@ -137,16 +137,13 @@
     margin-top: 20px;
 }
 
-#bbbb {
-    margin-bottom: 0px;
-}
-
 #go_back {
     position: fixed;
     top: 10%;
     left: 5%;
     color: rgb(211, 35, 35);
+    background-color: white;
     font-size: 32px;
-    padding: 10px 13px;
+    border-radius: 50%;
     margin: 20px;
 }

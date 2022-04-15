@@ -20,6 +20,8 @@ function Navigation({ isLoaded }) {
                 <h1 id="business-review">BusinessReview</h1>
             </div>
 
+            {!sessionUser && <div></div>}
+
             <div id="navbar-center">
                 <div className="margin-right">
                     <a href="https://srvorkap.github.io/" target="_blank">
@@ -52,16 +54,10 @@ function Navigation({ isLoaded }) {
                         </span>
                     </a>
                 </div>
-                {/* {sessionUser && (
-                    <div className="margin-right">
-                    <NavLink to="/businesses" id="business-navlink">
-                    Businesses
-                    </NavLink>
-                    </div>
-                )} */}
             </div>
 
-            {sessionUser && <div></div>}
+            {/* {sessionUser && <div></div>} */}
+            {/* {sessionUser && <div></div>} */}
             <div id="navbar-right-profile-button">
                 {sessionUser ? (
                     <div>
