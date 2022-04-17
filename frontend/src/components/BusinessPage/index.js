@@ -151,7 +151,7 @@ const BusinessPage = ({ sessionUser }) => {
                     className="red buttons"
                     onClick={onReview}
                 >
-                    <i class="far fa-star" id="star"></i>
+                    <i className="far fa-star" id="star"></i>
                     <p>Write a Review</p>
                 </button>
             </>
@@ -160,7 +160,7 @@ const BusinessPage = ({ sessionUser }) => {
     return (
         <div id="business-page">
             <NavLink to='/businesses'>
-                <i class="fas fa-arrow-alt-circle-left" id="go_back"></i>
+                <i className="fas fa-arrow-alt-circle-left" id="go_back"></i>
             </NavLink>
             <div
                 style={{

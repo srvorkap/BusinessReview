@@ -16,7 +16,7 @@ function Navigation({ isLoaded }) {
     return (
         <div id="navbar">
             <div onClick={goBack} id="navbar-left">
-                <i class="fab fa-yelp" id="yelp-icon"></i>
+                <i className="fab fa-yelp" id="yelp-icon"></i>
                 <h1 id="business-review">BusinessReview</h1>
             </div>
 
@@ -33,7 +33,7 @@ function Navigation({ isLoaded }) {
                 <div className="margin-right">
                     <a href="https://github.com/srvorkap" target="_blank">
                         <span id="github-icon">
-                            <i class="fab fa-github"></i>
+                            <i className="fab fa-github"></i>
                         </span>
                     </a>
                 </div>
@@ -43,14 +43,14 @@ function Navigation({ isLoaded }) {
                         target="_blank"
                     >
                         <span id="linkedin-icon">
-                            <i class="fab fa-linkedin"></i>
+                            <i className="fab fa-linkedin"></i>
                         </span>
                     </a>
                 </div>
                 <div className="margin-right">
                     <a href="https://angel.co/u/srdan-vorkapic" target="_blank">
                         <span id="linkedin-icon">
-                            <i class="fab fa-angellist"></i>
+                            <i className="fab fa-angellist"></i>
                         </span>
                     </a>
                 </div>
