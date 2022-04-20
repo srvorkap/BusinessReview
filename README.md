@@ -1,5 +1,5 @@
 # BusinessReview
-
+<img src="frontend/src/images/readme/BusinessPageWriteReview.png"></img>
 BusinessReview is a web application based on Yelp that allows people to review and rate local businesses.
 ***
 
