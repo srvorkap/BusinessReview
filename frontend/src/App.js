@@ -16,6 +16,10 @@ import ErrorPage from "./components/ErrorPage";
 import { useSelector } from "react-redux";
 import Rating from "./components/Rating";
 
+// Removing Heroku element
+const herokuLoading = document.getElementById('heroku-loading')
+herokuLoading.remove()
+
 function App() {
     const sessionUser = useSelector(state => state?.session?.user);
     const dispatch = useDispatch();
